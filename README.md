@@ -2,25 +2,25 @@
 This repo contains my dotfiles and configs. 
 
 ## Directory Contents
-*browsers*
- + jumanji
- + vimperator
+### browsers
+ * jumanji
+ * vimperator
 
-*consoles*
- + ncmpcpp
- + zsh
+### consoles
+ * ncmpcpp
+ * zsh
 
-*editors*
- + emacs
- + vim
+### editors
+ * emacs
+ * vim
 
-*panels*
- + bmpanel2
- + tint2
+### panels
+ * bmpanel2
+ * tint2
 
-*window-managers*
- + openbox
- + subtle
+### window-managers
+ * openbox
+ * subtle
 
-*x-files*
- + Xdefaults
+### x-files
+ * Xdefaults
