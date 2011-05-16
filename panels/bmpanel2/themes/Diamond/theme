@@ -1,0 +1,112 @@
+theme
+	name Diamond
+	author aj <http://spliceosome.deviantart.com/>
+	# License: GPL
+
+panel
+	position bottom
+	background tile.png
+		
+desktop_switcher
+	idle
+		left_corner tile.png
+		left tile.png
+		center tile.png
+		right tile.png
+		right_corner tile.png
+		#font Arial 8
+		#	color 100 100 100
+		#	align center
+		#	offset 0 1
+		#	shadow_color 32 32 32
+		#	shadow_offset 1 1
+		
+	pressed
+		left_corner tile.png
+		left tile.png
+		center tile.png
+		right tile.png
+		right_corner tile.png
+		#font Arial 8
+		#	color 169 183 196
+		#	align center
+		#	offset 0 1
+		#	shadow_color 32 32 32
+		#	shadow_offset 1 1
+
+launchbar
+	icon_size 16 16
+
+empty 3
+
+taskbar
+	idle
+		left tb-idle-lr.png
+		center tile.png
+		right tb-idle-lr.png
+		font Arial 8
+			color 153 153 153
+			offset 0 1
+			align center
+			shadow_color 32 32 32
+			shadow_offset 1 1
+
+	idle_highlight
+		left tb-hover-left.png
+		center tb-hover-tile.png
+		right tb-hover-right.png
+		font Arial 8
+			color 200 200 200
+			offset 0 1
+			align center
+			shadow_color 32 32 32
+			shadow_offset 1 1
+	
+	pressed
+		left tb-active-left.png
+		center tb-active-tile.png
+		right tb-active-right.png
+		font Arial 8
+			color 214 214 214
+			offset 0 1
+			align center
+			shadow_color 32 32 32
+			shadow_offset 1 1
+		
+	pressed_highlight
+		left tb-active-hover-left.png
+		center tb-active-hover-tile.png
+		right tb-active-hover-right.png
+		font Arial 8
+			color 214 214 214
+			offset 0 1
+			align center
+			shadow_color 32 32 32
+			shadow_offset 1 1
+
+	task_max_width 200
+	
+empty 2
+
+systray	
+	icon_size 16 16
+	icon_spacing 2
+	icon_offset 0 1
+	
+empty 2
+
+clock
+	background
+		left tile.png
+		center tile.png
+		right tile.png
+	font Arial 8
+		color 153 153 153
+		offset 0 1
+		align center
+		shadow_color 32 32 32
+		shadow_offset 1 1
+		
+	time_format %I:%M %p
+
+empty 2

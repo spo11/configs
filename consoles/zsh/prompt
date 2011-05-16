@@ -1,0 +1,48 @@
+#==============================================================
+#        __       __       __       __       __
+#       / /\     / /\     /_/\     / /\     / /\
+#      / / |_   / / /\   _\ \ \   / /  \   / / /
+#     /_/  |/\ /_/ /  \ /_/\/  \ /_/ / /_ /_/ / /\
+#  __ \_\/|  / \ \  / / \ \  /\/ \ \  __/ \ \ \/ /
+# /_/\  |_| /   \ \/ /   \ \ \    \ \ \    \ \  /
+# \_\/  \_\/     \_\/     \_\/     \_\/     \_\/
+#
+# P R O M P T  F O R  Z S H
+#
+
+# set formats
+# %s - VCS in use
+# %r - repo name
+# %b - branchname
+# %u - unstagedstr (see below)
+# %c - stangedstr (see below)
+# %a - action (e.g. rebase-i)
+# %R - repository path
+# %S - path in the repository
+FMT_BRANCH="${PR_RED}(%s)${PR_NO_COLOR} ${PR_LIGHT_MAGENTA}%b%u%c${PR_NO_COLOR}${PR_LIGHT_BLACK}@${PR_NO_COLOR}${PR_BLUE}%r${PR_NO_COLOR} ${PR_RED}>${PR_NO_COLOR}"
+  # e.g. master¹²
+FMT_ACTION="(${PR_YELLOW}%a${PR_NO_COLOR}%)"          # e.g. (rebase-i)
+FMT_PATH="${PR_LIGHT_BLACK}%R${PR_NO_COLOR}${PR_LIGHT_GREEN}/%S${PR_NO_COLOR}"          # e.g. ~/repo/subdir
+ 
+# check-for-changes can be really slow.
+# you should disable it, if you work with large repositories   
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr '¹'  # display ¹ if there are unstaged changes
+zstyle ':vcs_info:*' stagedstr '²'    # display ² if there are staged changes
+zstyle ':vcs_info:*' actionformats "${FMT_BRANCH}${FMT_ACTION}" "${FMT_PATH}"
+zstyle ':vcs_info:*' formats       "${FMT_BRANCH}"              "${FMT_PATH}"
+zstyle ':vcs_info:*' nvcsformats   ""                           "%~"        
+
+prompt() {
+  if [[ "${vcs_info_msg_0_}" == "" ]]; then
+
+    PROMPT=' ${PR_CYAN}%~${PR_NO_COLOR} ${PR_YELLOW}>${PR_NO_COLOR} '
+    RPROMPT='${PR_BLACK}running: %j${PR_NO_COLOR}'
+
+  else
+
+    PROMPT='${vcs_info_msg_0_} '
+    RPROMPT='${${vcs_info_msg_1_%%.}/$HOME/~}${PR_NO_COLOR}'
+
+  fi
+}

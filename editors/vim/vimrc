@@ -1,0 +1,13 @@
+set number
+set wrap
+set linebreak
+syntax on
+set mouse=
+set t_Co=256
+colors zenburn
+nnoremap <leader>w <C-w>v<C-w>l
+filetype plugin indent on
+autocmd FileType python set complete+=k~/.vim/syntax/python.vim isk+=.,(
+" Execute file being edited with <Shift> + e:
+map <buffer> <S-e> :w<CR>:!/usr/bin/env python % <CR>
+       

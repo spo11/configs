@@ -1,0 +1,16 @@
+# jumanji configuration
+# search engines
+searchengine ggl http://www.google.com/search?q=%s
+searchengine wiki http://en.wikipedia.org/w/index.php?search=%s
+searchengine awiki https://wiki.archlinux.org/index.php?title=Special%3ASearch&redirs=1&search=%s&fulltext=Search&ns0=1
+# browser settings
+set homepage http://www.google.com/
+
+# download settings
+set download_dir ~/dl/
+
+# appearance settings
+set font 7
+
+# scripts
+script ~/.config/jumanji/scripts/hints.js
