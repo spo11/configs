@@ -467,6 +467,11 @@ grab "S-F3" do
   puts Subtlext::VERSION
 end
 
+# Control MPD with the Keyboard
+grab "XF86AudioPrev", "mpc prev"
+grab "XF86AudioNext", "mpc next"
+grab "XF86AudioPlay", "mpc toggle"
+grab "XF86AudioStop", "mpc stop"
 
 #
 # == Tags
