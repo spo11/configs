@@ -19,6 +19,7 @@ This repo contains my dotfiles and configs.
  * tint2
 
 ### window-managers
+ * compiz
  * openbox
  * subtle
 
