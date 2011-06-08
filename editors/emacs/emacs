@@ -1,121 +1,77 @@
+;; Muse-Mode
 (require 'muse-mode)
 (require 'muse-html)
 (require 'muse-latex)
 (require 'muse-context)
 (require 'muse-project)
+
+;; php-mode
 (require 'php-mode)
 (require 'org-install)
 (require 'color-theme)
 (require 'org-latex)
+(require 'auto-indent-mode)
+
+;; Auto-Load Python
+(autoload 'python-mode "python-mode.el" "Python mode." t)
+(setq auto-mode-alist (append '(("/*.\.py$" . python-mode)) auto-mode-alist))
+
+;; Disable fringes
+(fringe-mode 0)
+
+;; Enable line numbers
+;;(autoload 'linum-mode)
+;;(setq linum-format " %d ")
+
+;; Toggle line numbers
+(autoload 'linum-mode "linum" "toggle line numbers on/off" t) 
+(global-set-key (kbd "C-<f5>") 'linum-mode) 
+;;(setq linum-format "%d ")
+
+;; Linum Format
+    (setq linum-format
+          (lambda (line)
+            (propertize (format
+                         (let ((w (length (number-to-string
+                                           (count-lines (point-min) (point-max))))))
+                           (concat "%" (number-to-string w) "d "))
+                         line)
+                        'face 'linum)))
+
+;; Markdown-Mode
 (autoload 'markdown-mode "markdown-mode.el"
    "Major mode for editing Markdown files" t)
 (setq auto-mode-alist
    (cons '("\.md" . markdown-mode) auto-mode-alist))
+
+;; Org-Mode Latex
 (unless (boundp 'org-export-latex-classes)
   (setq org-export-latex-classes nil))
 (add-to-list 'org-export-latex-classes
              '("article"
                "\\documentclass{article}"
-               ("\\section{%s}" . "\\section*{%s}")))  
-(color-theme-initialize)
-(load "~/.emacs.d/zenburn")
-(color-theme-zenburn)
-(add-to-list 'load-path "/usr/share/emacs/site-lisp/emhacks")
-(add-to-list 'load-path "~/.emacs.d/site-lisp/")
-(add-to-list 'load-path "~/.emacs.d/jekyll")
-(require 'weblogger)
-(require 'jekyll)
+               ("\\section{%s}" . "\\section*{%s}")))
+
+;; Color Theme
+;;(color-theme-initialize)
+(load "~/.emacs.d/color-theme-zenburn.el")
+(add-to-list 'load-path "~/.emacs.d/emacs-color-theme-solarized/")
+(require 'color-theme-zenburn)
+(require 'color-theme-solarized)
+(color-theme-solarized-light)
+;;(color-theme-zenburn)
+
+;; Custom Variables Set by Emacs
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- '(inhibit-startup-screen t)
- '(initial-buffer-choice "~/org/tasks.org")
  '(scroll-bar-mode (quote right))
- '(tool-bar-mode nil)
- '(weblogger-config-alist (quote (("default" ("user" . "aj9010") ("server-url" . "http://webassay.us.to/xmlrpc.php/") ("weblog" . "1"))))))
+ '(tool-bar-mode nil))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#3f3f3f" :foreground "#dcdccc" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 83 :width normal :foundry "Bok" :family "MonteCarlo")))))
- (setq line-move-visual t)
-     (setq org-publish-project-alist
-           '(("tuts"
-              :base-directory "~/projects/tutorials/"
-              :publishing-directory "/opt/lampp/htdocs/tutorials"
-              :section-numbers nil
-              :table-of-contents t
-	      :auto-index t
-	      :recursive t
-	      :auto-sitemap t
-	      :sitemap-filename "sitemap.org"
-	      :sitemap-sort-files "alphabetically"
-              :style "<link rel=\"stylesheet\"
-                     href=\"stylesheet.css\"
-                     type=\"text/css\"/>")
-              ("mcb"
-              :base-directory "~/docs/mcb252/notes/"
-              :publishing-directory "/opt/lampp/htdocs/mcb"
-              :section-numbers nil
-              :table-of-contents t
-	      ;;:auto-index t
-	      :recursive t
-	      :auto-sitemap t
-	      :sitemap-filename "index.org"
-	      :sitemap-title "Molecular and Cellular Biology Notes"
-	      :sitemap-sort-files "alphabetically"
-	      :exclude "parody.org"
-              :style "<link rel=\"stylesheet\"
-                     href=\"stylesheet.css\"
-                     type=\"text/css\"/>")
-              ("chem"
-              :base-directory "~/docs/chem104/kb/"
-              :publishing-directory "/docs/chem104/web/"
-              :section-numbers nil
-              :table-of-contents t
-	      ;;:auto-index t
-	      :recursive t
-	      :auto-sitemap t
-	      :sitemap-filename "index.org"
-	      :sitemap-title "Organic Chemistry"
-	      :sitemap-sort-files "chronologically"
-	      :exclude "template.org"
-              :style "<link rel=\"stylesheet\"
-                     href=\"stylesheet.css\"
-                     type=\"text/css\"/>")))
-(global-set-key (kbd "C-c b n") 'jekyll-draft-post)
-(global-set-key (kbd "C-c b P") 'jekyll-publish-post)
-(global-set-key (kbd "C-c b p") (lambda ()
-(interactive)
-(find-file "~/projects/site/_posts/")))
-(global-set-key (kbd "C-c b d") (lambda ()
-(interactive)
-(find-file "~/projects/site/_drafts/")))
-    (defvar org-journal-file "~/docs/writing/journal/journal.org"  
-      "Path to OrgMode journal file.")  
-    (defvar org-journal-date-format "%Y-%m-%d"  
-      "Date format string for journal headings.")  
-      
-    (defun org-journal-entry ()  
-      "Create a new diary entry for today or append to an existing one."  
-      (interactive)  
-      (switch-to-buffer (find-file org-journal-file))  
-      (widen)  
-      (let ((today (format-time-string org-journal-date-format)))  
-        (beginning-of-buffer)  
-        (unless (org-goto-local-search-forward-headings today nil t)  
-          ((lambda ()   
-             (org-insert-heading)  
-             (insert today)  
-             (insert "\n\n  \n"))))  
-        (beginning-of-buffer)  
-        (org-show-entry)  
-        (org-narrow-to-subtree)  
-        (end-of-buffer)  
-        (backward-char 2)  
-        (unless (= (current-column) 2)  
-          (insert "\n\n  "))))  
-	
+ '(default ((t (:stipple nil :background "#3f3f3f" :foreground "#dcdccc" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 90 :width normal :foundry "microsoft" :family "Consolas")))))
