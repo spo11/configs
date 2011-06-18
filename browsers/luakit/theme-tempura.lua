@@ -6,7 +6,7 @@
 local theme = {}
 
 -- Default settings
-theme.font                      = "Pragmata Medium 7"
+theme.font                      = "Pragmata Medium 8"
 theme.fg                        = "#fff"
 theme.bg                        = "#151515"
 
@@ -40,8 +40,8 @@ theme.proxy_inactive_menu_fg    = '#888'
 theme.proxy_inactive_menu_bg    = '#FFF'
 
 -- Statusbar specific
-theme.sbar_fg                   = "#f4f4f4"
-theme.sbar_bg                   = "#404040"
+theme.sbar_fg                   = "#151515"
+theme.sbar_bg                   = "#F1F1F1"
 
 -- Downloadbar specific
 theme.dbar_fg                   = "#ddd"
@@ -50,15 +50,15 @@ theme.dbar_error_fg             = "#da4939"
 
 -- Input bar specific
 theme.ibar_fg                   = "#090909"
-theme.ibar_bg                   = "#B0B0B0"
+theme.ibar_bg                   = "#ddd"
 
 -- Tab label
-theme.tab_fg                    = "#B0B0B0"
-theme.tab_bg                    = "#4F4F4F"
-theme.tab_ntheme                = "#ddd"
-theme.selected_fg               = "#ffffff"
-theme.selected_bg               = "#414140"
-theme.selected_ntheme           = "#ddd"
+theme.tab_fg                    = "#787B57"
+theme.tab_bg                    = "#B6BE59"
+theme.tab_ntheme                = "#3F4034"
+theme.selected_fg               = "#2f2f2f"
+theme.selected_bg               = "#CAD273"
+theme.selected_ntheme           = "#3F4034"
 theme.loading_fg                = "#6d9cbe"
 theme.loading_bg                = "#151515"
 
