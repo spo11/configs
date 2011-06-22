@@ -1,9 +1,14 @@
 ## What This Is
-This repo contains my dotfiles and configs. 
+This repo contains my dotfiles and configs.  
+
+## Subtle Configs
+My subtle configs link to icons from
+[here](http://subforge.org/projects/subtle/files). 
 
 ## Directory Contents
 ### browsers
  * jumanji
+ * luakit
  * vimperator
 
 ### consoles
