@@ -1,5 +1,5 @@
-# # Author::  spo11
-# Version:: 0.1
+# # author::  spo11
+# Version:: 1.1
 # License:: GNU GPL
 #
 # = custom subtle
@@ -39,7 +39,7 @@ set :resize, false
 
 # Font string either take from e.g. xfontsel or use xft
 #set :font, "-*-*-medium-*-*-*-12-*-*-*-*-*-*-*"
-set :font, "xft:Pragmata:pixelsize=10"
+set :font, "xft:HeldustryFTVBasic Demi:pixelsize=9"
 
 # Space around windows
 #set :gap, 5
@@ -89,10 +89,10 @@ screen 1 do
 
   # Content of the top panel
   #top     [ :title, :spacer, :views ]
-  top      [ :views, :title, :spacer, :separator, :wifi, :separator, :mpd, :separator, :volume, :separator, :battery, :separator, :clock ]
+  #top      [ :views, :title, :spacer, :separator, :wifi, :separator, :mpd, :separator, :volume, :separator, :battery, :separator, :clock ]
 
   # Content of the bottom panel
-  #bottom  [ :mpd, :spacer, :weather, :separator, :tray, :separator, :volume, :battery, :separator, :clock ]
+  bottom  [ :views, :spacer, :mpd, :separator, :volume, :battery, :separator, :clock ]
   #bottom     [ :mpd, :spacer, :views, :spacer, :tray, :volume, :battery, :wifi, :clock ]
 end
 
@@ -131,19 +131,19 @@ end
 style :title do
   padding     2, 10, 0, 10
   #border_bottom "#303030", 2
-  foreground  "#909090"
+  foreground  "#8CD0D3"
   background  "#1b1b1b"
 end
 
 style :focus do
   padding     2, 8, 0, 8
-  #border_bottom "#606060", 2
+  border_bottom "#606060", 2
   #border_bottom "#090909", 1
   #border_right "#090909", 1
-  border "3b3b3b", 1
+  #border "3b3b3b", 1
   #border_top "3b3b3b", 1
-  foreground  "#3191ff"
-  background  "#1b1b1b"
+  foreground  "#F8F893"
+  background  "#3b3b3b"
 end
 
 style :urgent do
@@ -155,9 +155,9 @@ end
 
 style :occupied do
   padding     2, 8, 0, 8
-  #border_bottom "#2a2a2a", 2
-  foreground  "#606060"
-  background  "#222222"
+  border_bottom "#424242", 2
+  foreground  "#82a282"
+  background  "#2E2E2E"
 end
 
 style :views do
@@ -181,13 +181,13 @@ style :separator do
 end
 
 style :clients do
-  active      "#EE465E", 2
-  inactive    "#202020", 2
-  margin      3
+  active      "#EBEBEB", 2
+  inactive    "#A8A8A8", 2
+  margin    3  
 end
 
 style :subtle do
-  padding     2
+  padding     1
   panel       "#222222"
   stipple     "#757575"
 end
@@ -216,55 +216,57 @@ end
 # http://subforge.org/wiki/subtle/Gravity
 #
 
-  # Top left
+
+# Top left
 gravity :top_left,       [   0,   0,  50,  50 ]
 gravity :top_left66,     [   0,   0,  50,  66 ]
 gravity :top_left33,     [   0,   0,  50,  34 ]
 
-  # Top
+# Top
 gravity :top,            [   0,   0, 100,  50 ]
 gravity :top66,          [   0,   0, 100,  66 ]
 gravity :top33,          [   0,   0, 100,  34 ]
 
-  # Top right
-gravity :top_right,      [ 100,   0,  50,  50 ]
-gravity :top_right66,    [ 100,   0,  50,  66 ]
-gravity :top_right33,    [ 100,   0,  50,  34 ]
+# Top right
+gravity :top_right,      [  50,   0,  50,  50 ]
+gravity :top_right66,    [  50,   0,  50,  66 ]
+gravity :top_right33,    [  50,   0,  50,  33 ]
 
-  # Left
+# Left
 gravity :left,           [   0,   0,  50, 100 ]
-gravity :left66,         [   0,  50,  50,  34 ]
-gravity :left33,         [   0,  50,  25,  34 ]
+gravity :left66,         [   0,   0,  66, 100 ]
+gravity :left33,         [   0,   0,  33, 100 ]
 
-  # Center
+# Center
 gravity :center,         [   0,   0, 100, 100 ]
-gravity :center66,       [   0,  50, 100,  34 ]
-gravity :center33,       [  50,  50,  50,  34 ]
+gravity :center66,       [  17,  17,  66,  66 ]
+gravity :center33,       [  33,  33,  33,  33 ]
 
-  # Right
-gravity :right,          [ 100,   0,  50, 100 ]
-gravity :right66,        [ 100,  50,  50,  34 ]
-gravity :right33,        [ 100,  50,  25,  34 ]
+# Right
+gravity :right,          [  50,   0,  50, 100 ]
+gravity :right66,        [  34,   0,  66, 100 ]
+gravity :right33,        [  67,  50,  33, 100 ]
 
-  # Bottom left
-gravity :bottom_left,    [   0, 100,  50,  50 ]
-gravity :bottom_left66,  [   0, 100,  50,  66 ]
-gravity :bottom_left33,  [   0, 100,  50,  34 ]
+# Bottom left
+gravity :bottom_left,    [   0,  50,  50,  50 ]
+gravity :bottom_left66,  [   0,  34,  50,  66 ]
+gravity :bottom_left33,  [   0,  67,  50,  33 ]
 
-  # Bottom
-gravity :bottom,         [   0, 100, 100,  50 ]
-gravity :bottom66,       [   0, 100, 100,  66 ]
-gravity :bottom33,       [   0, 100, 100,  34 ]
+# Bottom
+gravity :bottom,         [   0,  50, 100,  50 ]
+gravity :bottom66,       [   0,  34, 100,  66 ]
+gravity :bottom33,       [   0,  67, 100,  33 ]
 
-  # Bottom right
-gravity :bottom_right,   [ 100, 100,  50,  50 ]
-gravity :bottom_right66, [ 100, 100,  50,  66 ]
-gravity :bottom_right33, [ 100, 100,  50,  34 ]
+# Bottom right
+gravity :bottom_right,   [  50,  50,  50,  50 ]
+gravity :bottom_right66, [  50,  34,  50,  66 ]
+gravity :bottom_right33, [  50,  67,  50,  33 ]
 
-  # Gimp
-gravity :gimp_image,     [  50,  50,  80, 100 ]
+# Gimp
+gravity :gimp_image,     [  10,   0,  80, 100 ]
 gravity :gimp_toolbox,   [   0,   0,  10, 100 ]
-gravity :gimp_dock,      [ 100,   0,  10, 100 ]
+gravity :gimp_dock,      [  90,   0,  10, 100 ]
+
 
 #
 # == Grabs
@@ -594,22 +596,21 @@ grab "XF86AudioStop", "mpc stop"
 
 # Simple tags
 #tag "terms",   "xterm|[u]?rxvt"
-tag "browser", "uzbl|firefox|chromium|navigator"
-tag "jumanji", "jumanji"
-tag "filemanager", "pcmanfm|nautilus|xarchiver|file-roller|viewnior|thunar|nitrogen|qiviewer"
-tag "music", "sonata|banshee"
+tag "browser", "luakit|jumanji|uzbl|firefox|chromium|navigator"
+tag "filemanager", "pcmanfm|nautilus|xarchiver|file-roller|geeqie|viewnior|thunar|nitrogen|qiviewer"
+tag "music", "sonata|banshee|pithos"
 tag "video", "minitube|vlc|mplayer|gnome-mplayer|umplayer"
-tag "text", "emacs|lyx" 
+tag "text", "emacs|gvim|lyx" 
 tag "office", "epdfview|libreoffice|gummi|xpdf|zathura" 
 tag "graphics", "mtpaint|gimp|inkscape"
 tag "chat" , "skype|pidgin"
-tag "mail", "thunderbird|postler|evolution"
+tag "mail", "sylpheed|thunderbird|postler|evolution"
 tag "ebooks", "calibre"
 tag "writing", "focuswriter"
 # Terminal
 tag "terms" do
    match "xterm|[u]?rxvt"
-   exclude :instance => "mutt|ncmpcpp|pianobar"
+   #exclude :instance => "mutt|ncmpcpp|pianobar"
 end
 
 # Science
@@ -617,7 +618,7 @@ tag "science", "avogadro|BKchem|chemtool"
 
 # Launcher, Attention
 tag "launcher" do
-  match "kupfer|gmrun|synapse"
+  match "kupfer|gmrun|synapse|tilda"
   urgent true
   splash true
 end
@@ -630,8 +631,8 @@ end
 
 # Placement
 tag "editor" do
-  match  "medit|geany|gedit|pyroom|gvim|cvim"
-  resize true
+  match  "medit|geany|gedit|pyroom|gvim|cvim|emacs"
+  resize false
 end
 
 tag "fixed" do
@@ -641,7 +642,7 @@ end
 
 tag "resize" do
   match  "sakura|gvim"
-  resize true
+  resize false
 end
 
 tag "gravity" do
@@ -650,7 +651,7 @@ end
 
 # Modes
 tag "stick" do
-  match "gmrun|obmixer|synapse"
+  match "gmrun|obmixer|synapse|tilda"
   float true
   stick true
 end
@@ -787,39 +788,49 @@ end
 #view "dev",   "editor"
 #view "file", "filemanager"
 
-view "[01]" do
+view "" do
 	match "filemanager|default"
 	icon "~/.icons/xbm2/arch2.xbm"
 end
 
-view "[02]" do
+view "" do
 	match "writing|ebooks"
 	icon "~/.icons/xbm2/screen.xbm"
 end
 
-view "[03] net" do
-	match "browser|mail|jumanji|chat"
+view "" do
+	match "browser"
 	icon "~/.icons/xbm2/world.xbm"
 end
 
-view "[04] code" do
-	match "terms"
+view "" do
+	match "terms|text"
 	icon "~/.icons/xbm2/terminal.xbm"
 end
 
-view "[05] work" do
-	match "office|text"
+view "" do
+	match "office"
 	icon "~/.icons/xbm2/bag.xbm"
 end
 
-view "[06] media" do
-	match "mutt|ncmpcpp|pianobar|music|video"
-	icon "~/.icons/xbm2/movie.xbm"
+view "" do
+	match "music|video|ncmpcpp"
+	icon "~/.icons/xbm2/note1.xbm"
 end
 
-view "[07] photo" do
-	match "graphics"
+view "" do
+	match "graphics|gimp_image|gimp_toolbox|gimp_dock"
 	icon "~/.icons/xbm2/wand.xbm"
+end
+
+view "" do
+	match "chat"
+	icon "~/.icons/xbm2/balloon.xbm"
+end
+
+view "" do
+	match "mail"
+	icon "~/.icons/xbm2/mail.xbm"
 end
 #view "mail" do
 #   match "mutt"
@@ -921,7 +932,7 @@ on :start do
    Subtlext::Subtle.spawn "dropbox start" 
 end
 on :start do
-   Subtlext::Subtle.spawn "wicd-client" 
+   Subtlext::Subtle.spawn "tilda" 
 end
 on :start do
    Subtlext::Subtle.spawn "kupfer --no-splash" 
@@ -941,15 +952,22 @@ end
 # clock
   sublet :clock do
     interval      30
-#    foreground    "#eeeeee"
+    foreground    "#dca3a3"
 #    background    "#000000"
     format_string "%I:%M %p"
   end
   # mpd
   sublet :mpd do
          # interval      30
-         #    foreground    "#eeeeee"
+             foreground    "#F0DFAF"
          #    background    "#000000"
-     format_string "%note%"
+     #format_string "%note%"
+  end  
+  # volume
+  sublet :volume do
+         # interval      30
+             foreground    "#9FAFAF"
+         #    background    "#000000"
+     #format_string "%note%"
   end
   #             
