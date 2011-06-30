@@ -39,7 +39,7 @@ set :resize, false
 
 # Font string either take from e.g. xfontsel or use xft
 #set :font, "-*-*-medium-*-*-*-12-*-*-*-*-*-*-*"
-set :font, "xft:HeldustryFTVBasic Demi:pixelsize=9"
+set :font, "xft:HeldustryFTVBasic Demi:pixelsize=10"
 
 # Space around windows
 #set :gap, 5
@@ -92,9 +92,10 @@ screen 1 do
   #top      [ :views, :tasks ]
   #top      [ :views, :title, :spacer, :separator, :wifi, :separator, :mpd, :separator, :volume, :separator, :battery, :separator, :clock ]
   #top  [ :views, :spacer, :mpd, :separator, :volume, :battery, :separator, :clock ]
+  top  [ :views, :tasks, :spacer, :mpd, :separator, :memory, :separator, :wifi, :separator, :battery, :separator, :clock ]
 
   # Content of the bottom panel
-  bottom  [ :views, :tasks, :spacer, :mpd, :separator, :memory, :separator, :wifi, :separator, :battery, :separator, :clock ]
+  #bottom  [ :views, :tasks, :spacer, :mpd, :separator, :memory, :separator, :wifi, :separator, :battery, :separator, :clock ]
   #bottom     [ :mpd, :spacer, :views, :spacer, :tray, :volume, :battery, :wifi, :clock ]
 end
 
@@ -139,13 +140,16 @@ end
 
 style :focus do
   padding     2, 8, 0, 8
-  border_bottom "#606060", 2
-  #border_bottom "#090909", 1
+  #margin      0, 1, 0, 1
+  #border_bottom "#9c9c9c", 2
+  #border_bottom "#b0b0b0", 1
   #border_right "#090909", 1
   #border "3b3b3b", 1
   #border_top "3b3b3b", 1
-  foreground  "#F8F893"
-  background  "#3b3b3b"
+  border_left "#b0b0b0", 1
+  border_right "#b0b0b0", 1
+  foreground  "#b22020"
+  background  "#c2c2c2"
 end
 
 style :urgent do
@@ -157,40 +161,47 @@ end
 
 style :occupied do
   padding     2, 8, 0, 8
-  border_bottom "#424242", 2
-  foreground  "#82a282"
-  background  "#2E2E2E"
+ # margin      0, 1, 0, 1
+  #border_bottom "#c2c2c2", 2
+  #border_left "#d1d1d1", 1
+  border_right "#d1d1d1", 1
+  foreground  "#95B2C1"
+  background  "#dbdbdb"
 end
 
 style :views do
   padding     2, 8, 0, 8
-  foreground  "#3A3A3A"
-  background  "#222222"
+  #border_left "#d4d4d4", 1
+  border_right "#d4d4d4", 1
+  #foreground  "#BDC6C9"
+  foreground  "#A8B0B2"
+  background  "#EBEBEB"
 end
 
 style :sublets do
   padding     2, 10, 0
 #  border_bottom "#303030", 2
   foreground  "#b0b0b0"
-  background  "#222222"
+  background  "#EBEBEB"
 end
 
 style :separator do
   padding     1, 0, 0
 #  border_bottom "#090909", 2
-  background  "#222222"
+  background  "#EBEBEB"
   foreground  "#505050"
 end
 
 style :clients do
-  active      "#EBEBEB", 2
-  inactive    "#A8A8A8", 2
+  active      "#EBEBEB", 1
+  #active      "#9C9C9C", 2
+  inactive    "#A8A8A8", 1
   margin    3  
 end
 
 style :subtle do
   padding     1
-  panel       "#222222"
+  panel       "#EBEBEB"
   stipple     "#757575"
 end
 # }}}
@@ -599,14 +610,14 @@ grab "XF86AudioStop", "mpc stop"
 # Simple tags
 #tag "terms",   "xterm|[u]?rxvt"
 tag "browser", "luakit|jumanji|uzbl|firefox|chromium|navigator"
-tag "filemanager", "pcmanfm|nautilus|xarchiver|file-roller|geeqie|viewnior|thunar|nitrogen|qiviewer"
+tag "filemanager", "emelfm2|pcmanfm|nautilus|xarchiver|file-roller|geeqie|viewnior|thunar|nitrogen|qiviewer"
 tag "music", "sonata|banshee|pithos"
 tag "video", "minitube|vlc|mplayer|gnome-mplayer|umplayer"
-tag "text", "emacs|gvim|lyx" 
-tag "office", "epdfview|libreoffice|gummi|xpdf|zathura" 
+tag "text", "gvim|lyx" 
+tag "office", "epdfview|libreoffice|gummi|xpdf|zathura|emacs" 
 tag "graphics", "mtpaint|gimp|inkscape"
 tag "chat" , "skype|pidgin"
-tag "mail", "sylpheed|thunderbird|postler|evolution"
+tag "mail", "sylpheed|thunderbird|postler|dexter|kmail|evolution"
 tag "ebooks", "calibre"
 tag "writing", "focuswriter"
 # Terminal
@@ -792,17 +803,17 @@ end
 
 view "" do
 	match "filemanager|default"
-	icon "~/.icons/xbm2/arch2.xbm"
+	icon "~/.icons/xbm2/shelf.xbm"
 end
 
 view "" do
 	match "writing|ebooks"
-	icon "~/.icons/xbm2/screen.xbm"
+	icon "~/.icons/xbm2/cpu.xbm"
 end
 
 view "" do
 	match "browser"
-	icon "~/.icons/xbm2/world.xbm"
+	icon "~/.icons/xbm2/fox.xbm"
 end
 
 view "" do
@@ -812,22 +823,22 @@ end
 
 view "" do
 	match "office"
-	icon "~/.icons/xbm2/bag.xbm"
+	icon "~/.icons/xbm2/notepad.xbm"
 end
 
 view "" do
 	match "music|video|ncmpcpp"
-	icon "~/.icons/xbm2/note1.xbm"
+	icon "~/.icons/xbm2/tv.xbm"
 end
 
 view "" do
 	match "graphics|gimp_image|gimp_toolbox|gimp_dock"
-	icon "~/.icons/xbm2/wand.xbm"
+	icon "~/.icons/xbm2/paint.xbm"
 end
 
 view "" do
 	match "chat"
-	icon "~/.icons/xbm2/balloon.xbm"
+	icon "~/.icons/xbm2/chain.xbm"
 end
 
 view "" do
@@ -943,7 +954,7 @@ end
 sublet :wifi do
   interval      1
   foreground    "#cc7833"
-  background    "#151515"
+  background    "#ebebeb"
 end
 # weather
   sublet :weather do
@@ -956,7 +967,7 @@ end
     interval      30
     foreground    "#dca3a3"
 #    background    "#000000"
-    format_string "%I:%M %p"
+    format_string "%I:%M %p | %m/%d"
   end
   # mpd
   sublet :mpd do
