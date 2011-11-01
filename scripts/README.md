@@ -17,6 +17,7 @@ wmbinlist=(startsubtle startob startdwm)
 ```
 
 Make sure to change the WM display names so that they *correspond to the name of the window managers specificed in wmbinlist*!
+
 ```
 wmdisplist=(Subtle Openbox DWM)
 ```
