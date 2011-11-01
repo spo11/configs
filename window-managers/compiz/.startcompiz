@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+#~/.startcompiz
+#
+#
+# !state=maxvert in Window Decoration
+LIBGL_ALWAYS_INDIRECT=1 INTEL_BATCH=1
+compiz --indirect-rendering --sm-disable ccp &
+nitrogen --restore &
+kupfer --no-splash &
+(sleep 10s && conky_mira) &
+#dropbox start &
+#wicd-client &
+#batterymon &
+avant-window-navigator 
+#xfce4-panel
+#lxpanel
+#bmpanel2 --theme=Fundamental
+#tint2
