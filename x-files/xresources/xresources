@@ -1,0 +1,187 @@
+!==============================================================
+!
+!   X R E S O U R C E S
+!
+! Global
+
+! fg and bg might be overwritten by an imported colorscheme
+*foreground:              #807777
+*background:              #151515
+*saveLines:               1024
+
+*foreground:              rgb:80/77/77
+
+Xcursor.theme:            ComixCursors-White-Small-Slim
+
+!==============================================================
+!
+! X f t
+!
+Xft.autohint:             0
+Xft.lcdfilter:            lcddefault
+Xft.hintstyle:            hintfull
+Xft.hinting:              1
+Xft.antialias:            1
+Xft.dpi:                  96
+Xft.rgba:                 rgb
+
+!==============================================================
+!
+! X T e r m 
+!
+xterm*borderWidth:        0
+xterm*dynamicColors:      true
+xterm*faceName:           xft:Pragmata:pixelsize=9
+xterm*geometry:           80x23
+xterm*utf8:               2
+
+!==============================================================
+!
+! U R x v t
+!
+! URxvt*font:               xft:Pragmata:pixelsize=9
+! URxvt*boldFont:           xft:Pragmata:pixelsize=9
+! URxvt*font:               xft:Neep:pixelsize=9
+! URxvt*boldFont:           xft:Neep:pixelsize=9
+URxvt*font:               xft:Mensch:size=7
+! URxvt*letterSpace:        1
+
+URxvt*buffered:           true
+
+URxvt*cursorBlink:        false
+URxvt*cursorUnderline:    false
+
+URxvt*geometry:           90x20
+URxvt*internalBorder:     3
+
+!URxvt*reverseVideo:        true
+
+URxvt*depth:              24
+
+!URxvt*iconFile:            /home/crshd/.icons/kare/32x32/apps/terminal.png
+
+URxvt*scrollBar:          false
+URxvt*scrollBar_right:    true
+URxvt*scrollstyle:        plain
+URxvt*scrollColor:        #2873a2
+URxvt*scrollWithBuffer:   false
+URxvt*scrollTtyOutput:    true
+
+URxvt*urgentOnBell:       true
+!URxvt*visualBell:          true
+
+URxvt*pointerBlank:       true
+
+URxvt*termName:           rxvt-256color
+
+! Tabs
+URxvt.tabbed.tabbar-fg:   8
+URxvt.tabbed.tabbar-bg:   0
+URxvt.tabbed.tab-fg:      0
+URxvt.tabbed.tab-bg:      4
+
+! Perls stuff
+URxvt.perl-lib:           /usr/lib/urxvt/perl/
+URxvt.perl-ext-common:    default,matcher
+URxvt.perl-ext:           default,url-select
+URxvt.keysym.M-u:         perl:url-select:select_next
+URxvt.urlLauncher:        /usr/bin/luakit
+URxvt.matcher.button:     1
+
+!==============================================================
+!
+! X C A L C
+!
+xcalc*geometry:                         200x270
+xcalc*font:                    -*-clean-*-*-*-*-*-*-*-*-*-*-*-*
+
+! Background
+xcalc*background:               #151515
+xcalc*borderColor:              #111111
+
+! Screen
+xcalc*bevel.vertDistance:       5
+xcalc*bevel.background:         dark khaki
+xcalc*bevel.borderColor:        khaki
+xcalc*screen*background:        dark khaki
+xcalc*screen*foreground:        black
+xcalc*screen*borderColor:       dark khaki
+
+! Buttons =====================================================
+
+! Spacing
+xcalc*button1*vertDistance:     4
+xcalc*button2*vertDistance:     4
+xcalc*button3*vertDistance:     4
+xcalc*button4*vertDistance:     4
+xcalc*button5*vertDistance:     4
+xcalc*button21*vertDistance:    4
+xcalc*button22*vertDistance:    4
+xcalc*button23*vertDistance:    4
+xcalc*button24*vertDistance:    4
+xcalc*button25*vertDistance:    4
+
+! Background
+xcalc*Command*background:       #181818
+xcalc*Command*borderColor:      #202020
+
+! Fix labels
+xcalc*button2.label:            x^2
+xcalc*button3.label:            v-
+xcalc*button20.label:           /
+
+! CE
+xcalc*button4.background:       firebrick4
+xcalc*button4.borderColor:      firebrick3
+
+! AC
+xcalc*button5.background:       firebrick3
+xcalc*button5.borderColor:      firebrick1
+
+! Numpad
+xcalc*button22.background:      #202020
+xcalc*button22.borderColor:     #262626
+xcalc*button23.background:      #202020
+xcalc*button23.borderColor:     #262626
+xcalc*button24.background:      #202020
+xcalc*button24.borderColor:     #262626
+xcalc*button27.background:      #202020
+xcalc*button27.borderColor:     #262626
+xcalc*button28.background:      #202020
+xcalc*button28.borderColor:     #262626
+xcalc*button29.background:      #202020
+xcalc*button29.borderColor:     #262626
+xcalc*button32.background:      #202020
+xcalc*button32.borderColor:     #262626
+xcalc*button33.background:      #202020
+xcalc*button33.borderColor:     #262626
+xcalc*button34.background:      #202020
+xcalc*button34.borderColor:     #262626
+xcalc*button37.background:      #202020
+xcalc*button37.borderColor:     #262626
+
+! =
+xcalc*button40.background:      dark olive green
+xcalc*button40.borderColor:     olive drab
+
+!==============================================================
+!
+! D M E N U
+!
+dmenu.font:                     Mensch:size=8.5
+dmenu.foreground:               #808080
+dmenu.background:               #151515
+dmenu.selforeground:            #DDDDDD
+dmenu.selbackground:            #da4939
+
+!==============================================================
+!
+! C O L O R S
+!
+! # include ".config/xresources/railscast_colors"
+! # include ".config/xresources/nucolors"
+# include ".config/xresources/dotshare"
+! # include ".config/xresources/getfresh"
+
+! Fix urxvt 256 colors
+ # include ".config/xresources/urxvt_fix"
