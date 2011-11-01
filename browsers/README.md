@@ -1,8 +1,8 @@
 # Browsers
 In these folders, I've included configuration files for the following browsers:
- * Firefox
- * Jumanji
- * Luakit
+* Firefox
+* Jumanji
+* Luakit
 
 ## Firefox
 Recommended Extensions:
