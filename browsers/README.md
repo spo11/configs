@@ -1,11 +1,13 @@
 # Browsers
 In these folders, I've included configuration files for the following browsers:
+
  * Firefox
  * Jumanji
  * Luakit
 
 ## Firefox
 Recommended Extensions:
+
  * [Pentadactyl Nightly](http://dactyl.sourceforge.net/nightlies)
  * [Stylish](https://addons.mozilla.org/en-US/firefox/addon/stylish/)
  * [GreaseMonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/)
