@@ -37,10 +37,10 @@ xterm*utf8: 2
 !
 ! U R x v t
 !
-URxvt*font: xft:Pragmata:pixelsize=10
-URxvt*boldFont: xft:Pragmata:pixelsize=10
-!URxvt*font: xft:Fixed:pixelsize=10
-!URxvt*boldFont: xft:Fixed:pixelsize=10
+URxvt*font: xft:Pragmata:pixelsize=11
+URxvt*boldFont: xft:Pragmata:pixelsize=11
+!URxvt*font: xft:Fixed:pixelsize=11
+!URxvt*boldFont: xft:Fixed:pixelsize=11
 
 URxvt*buffered: true
 
@@ -173,6 +173,7 @@ dmenu.selbackground: #ff8939
 ! C O L O R S
 !
  # include ".config/xresources/railscast_colors"
+ # include ".config/xresources/colors"
 
 ! Fix urxvt 256 colors
  # include ".config/xresources/urxvt_fix"

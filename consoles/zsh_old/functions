@@ -1,0 +1,163 @@
+#==============================================================
+#        __       __       __       __       __
+#       / /\     / /\     /_/\     / /\     / /\
+#      / / |_   / / /\   _\ \ \   / /  \   / / /
+#     /_/  |/\ /_/ /  \ /_/\/  \ /_/ / /_ /_/ / /\
+#  __ \_\/|  / \ \  / / \ \  /\/ \ \  __/ \ \ \/ /
+# /_/\  |_| /   \ \/ /   \ \ \    \ \ \    \ \  /
+# \_\/  \_\/     \_\/     \_\/     \_\/     \_\/
+#
+# F U N C T I O N S  F O R  Z S H
+
+
+# Title stuffs # {{{
+precmd() {
+  vcs_info
+  prompt
+
+  case $TERM in
+    rxvt-256color | screen-256color ) 
+      print -Pn "\e]0;%n@%m: %~\a" ;;
+  esac
+}
+
+preexec() {
+  case $TERM in
+    rxvt-256color | screen-256color )
+      print -Pn "\e]0;$1\a" ;;
+  esac
+} # }}}
+
+# Oneliners # {{{
+goto() { [ -d "$1" ] && cd "$1" || cd "$(dirname "$1")"; }
+cpf() { cp "$@" && goto "$_"; }
+mvf() { mv "$@" && goto "$_"; }
+mkf() { mkdir -p $1; cd $1 }
+cdl() { cd $@; ls++ }
+zsh_stats() { history | awk '{print $2}' | sort | uniq -c | sort -rn | head }
+du1() { du -h --max-depth=1 "$@" | sort -k 1,1hr -k 2,2f; }
+epoch() { print $(( `echo $1 | cut -b 1-2` * 3600 + `echo $1 | cut -b 4-5` * 60 + `echo $1 | cut -b 7-8` )) }
+horny() { mirage -sR /media/data/Bilder/horny/; } # }}}
+
+# Create ZSH named directory # {{{
+namedir() {
+	echo "$1=$PWD ;  : ~$1" >> ~/.config/zsh.d/directories
+	. ~/.config/zsh.d/directories
+} # }}}
+
+# Most used Commands # {{{
+mostused() {
+  sed -n 's/^\([a-z]*\) .*/\1/p' $HOME/.config/zsh.d/history |
+  sort |
+  uniq -c |
+  sort -n -k1 |
+  tail -25 |
+  tac
+} # }}}
+
+# FFMPEG stuffs # {{{
+
+# Split Video
+ffmpeg_splitvid()
+{
+  local t=$(epoch `ffprobe $1 2>&1 | grep Duration | cut -b 13-20`)
+	local first=$(( $t / 3 ))
+	local second=$(( $first * 2 ))
+	local duration=$(( $first + 30 ))
+
+	echo -n "Total time: $t sec | "
+	echo -n "First split: $first sec | "
+	echo -n "Second split: $second sec | "
+	echo "Duration: $duration sec"
+
+	sleep 2
+
+  ffmpeg -i $1 -ss 0 -t $duration -vcodec copy -sameq -acodec copy -async 100 -threads 0 ${1%.*}.part1.avi
+	ffmpeg -i $1 -ss $first -t $duration -vcodec copy -sameq -acodec copy -async 100 -threads 0 ${1%.*}.part2.avi
+	ffmpeg -i $1 -ss $second -t $duration -vcodec copy -sameq -acodec copy -async 100 -threads 0 ${1%.*}.part3.avi
+  goto $1
+}
+
+ffmpeg_bframes()
+{
+	ffmpeg -i $1 -vcodec copy -sameq -acodec libmp3lame -ab 128k -ar 48000 -ac 2 -threads 0 ${1%.*}.fix.avi
+}
+
+# Convert to x264 (stupid railscasts with their stupid .mov that won't play in mplayer)
+ffmpeg_x264() {
+	ffmpeg -i $1 -acodec libfaac -ab 96k -vcodec libx264 -vpre slow -crf 22 -threads 0 -f matroska ${1%.*}.mkv
+}	
+
+# Rip Audio as MP3
+ffmpeg_mp3() {
+	ffmpeg -i $1 -acodec libmp3lame -sameq -threads 0 ${1%.*}.mp3
+}
+
+# Convert anything to iPhone and move to LAMP for streaming
+ffmpeg_iphone()
+{
+    ffmpeg -i $1 -acodec libfaac -ab 128k -vcodec libx264 -vpre ipod640 -s 480x320 -r 29 -threads 0 ${1%.*}.mp4
+    mv ${1%.*}.mp4 ~/locohost/iphone/
+} # }}}
+
+# Convert .xbm to .png - Use: xbm2png [file] [color] # {{{
+bm2png() {
+    for f in $1.xbm
+    do
+        convert -fill \#$2 -transparent white -colorize 100 $f ${f%.*}.png
+    done
+} # }}}
+
+# Rip Audio CDs # {{{
+ripdatshit()
+{
+  echo "MP3 VBR quality setting: [0-9]"
+  read $q
+  mkdir $HOME/tmp/rip
+  cd $HOME/tmp/rip
+  cdparanoia -B
+  for i in *.wav; do
+    lame -V $q $i mp3/${i%.*.*}.mp3
+  done
+  echo "Tag mp3 files with Easytag? [y/n]"
+  read $yn
+  if [[ "$yn" == "y" ]]; then
+    easytag $HOME/tmp/rip
+  fi
+} # }}}
+
+# Setup empty github repo # {{{
+mkgit() {
+    mkdir $1
+    cd $1
+    git init
+    touch README.markdown
+    git add README.markdown
+    git commit -m 'inital setup - automated'
+    git remote add origin git@github.com:crshd/$1.git
+    git push origin master
+} # }}}
+
+# Extract archives # {{{
+extract() {
+     if [ -f $1 ] ; then
+         case $1 in
+             *.tar.bz2)   tar xvjf $1     ;;
+             *.tar.gz)    tar xvzf $1     ;;
+             *.bz2)       bunzip2 $1      ;;
+             *.rar)       unrar x $1      ;;
+             *.gz)        gunzip $1       ;;
+             *.tar)       tar xvf $1      ;;
+             *.tbz2)      tar xvjf $1     ;;
+             *.tgz)       tar xvzf $1     ;;
+             *.zip)       unzip $1        ;;
+             *.Z)         uncompress $1   ;;
+             *.7z)        7z x $1         ;;
+             *)           echo "'$1' kann nicht mit >extract< entpackt werden" ;;
+         esac
+     else
+         echo "'$1' ist eine ungültige Datei"
+     fi
+} # }}}
+
+#  vim: set ts=2 sw=2 tw=0 :

@@ -3,13 +3,13 @@ This repo contains my dotfiles and configs.
 
 ## Subtle Configs
 My subtle configs link to icons from
-[here](http://subforge.org/projects/subtle/files). 
+[here](http://subforge.org/projects/subtle/files). NOTE: You have to change the file extension of "icons.xz" to "icons.tar.xz" or it will not properly decompress. 
 
 ## Directory Contents
 ### browsers
  * jumanji
  * luakit
- * vimperator
+ * firefox
 
 ### consoles
  * ncmpcpp

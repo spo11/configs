@@ -26,7 +26,9 @@ export SHELL='/bin/zsh'
 
 export EDITOR='vim'
 
-export PATH='/usr/local/bin:/usr/bin:/usr/games/bin:/bin:/opt/bin:/usr/x86_64-pc-linux-gnu/gcc-bin/4.4.4:/home/crshd/bin:'
+export PATH='/usr/local/bin:/usr/bin:/usr/games/bin:/bin:/opt/bin:/usr/x86_64-pc-linux-gnu/gcc-bin/4.4.4:/usr/sbin:/sbin:/home/allyson/.bin'
+TERM='rxvt-unicode'
+COLORTERM='rxvt-unicode-256color'
 #export PAGER='vimmanpager'
 
-export WINEPREFIX='/home/crshd/.wine32'
+#export WINEPREFIX='/home/crshd/.wine32'

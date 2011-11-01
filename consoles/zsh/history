@@ -1,115 +1,1096 @@
-python
+nanoc compile
+nanoc view
+nanoc view
+nanoc compile
+nanoc view
+nanoc compile
+nanoc view
+nanoc compile
+ls
+cd output
+ls
+rm -r *
+ls
+cd ..
+nanoc view
+nanoc compile
+nanoc view
+nanoc compile
+nanoc view
+nanoc compile
+nanoc view
+nanoc view
+cd output
+ls
+rm -r *
+cd ..
+nanoc compile
+nanoc view
+gem install vim-ruby
+packer vim-ruby
+packer vim ruby
+cd .vim
+git clone https://github.com/vim-ruby/vim-ruby.git
+ls
+rm -rf vim-ruby
+ls
+cd ..
+git clone https://github.com/vim-ruby/vim-ruby.git
+ls
+cd vim-ruby
+ls
+mv * ../.vim
+mv -R ../.vim
+mv --help
+cp -R * ../.vim
+cd ../.vim
+ls
+cd indent
+ls
 tmux
-tmux kill serve
-tmux kill-server
-tmux
-vim lol.py
-ncmpcpp
-sudo vim /usr/bin/music
-alsi
-tmux
-tmux
-tmux kill-server
-tmux
-packer qiviewer
-vim ~/.config/subtle/subtle.rb
-subtle -k
-vim .config/subtle/subtle.rb
-subtle -k
-tmux
-cat ~/.config/subtle/subtle.rb
-cat ~/.config/subtle/subtle.rb|less
-subtle -k
-subtle -k
-subtle -k
-subtle -k
-subtle -k
-subtle -k
-subtle -k
-subtle -k
-subtle -k
-subtle -k
-subtle -k
-subtle -k
-subtle -k
-packer muttator
-packer muttator
-vim ~/.config/subtle/subtle.rb
-packer quick-init
-sudo vim /boot/grub/menu.lst
-sudo vim /etc/rc.conf
-sudo cp -i -p /lib/udev/load-modules.sh /lib/udev/load-modules.sh.old
-sudo sed -i "s#/lib/udev/load-modules.sh#/sbin/modprobe#g" /etc/udev/rules.d/*.rules
-sudo vim /lib/udev/load-modules.sh
-cat /etc/rc.sysinit | less
-vim /etc/mkinitcpio.conf
-sudo vim /etc/rc.conf
-vim .vimperatorrc
+tmux list-keys
+cd projects/tutorial
+cd projects/tutorial
+ls
+nanoc c
+nanoc compile
+nanoc view
+nanoc compile
+nanoc compile
 ranger
+sudo wifi-select
+sudo wifi-select wlan0
+packer s3
+packer amazon s3
+sudo wifi-select wlan0
+cd /etc/network.d/
+ls
+sudo rm -r DREAMASSET_Network
+ls
+ls
+sudo pacman -Syy
+sudo pacman -Syu
+cd /etc/profile.d
+ls
+sudo rm -r locale.sh
+ls
+sudo pacman -Syu
+sudo wifi-select wlan0
+sudo pacman -Syu
+elinks
+cd ~/.config/zsh
+ls
+mv prompt prompt_old
+mv prompt2 prompt
+exit
+cd projects
+ls
+vim ~/.config/zsh/prompt
+cd projects
+ls
+cd tutorial
+cd
+packer google cli
+packer googlecl
+man googlecl
+man amixer
+ncmpcpp
+googlecl
+google
+google
+ranger
+packer times
+cd /usr/share/fonts
+ls
+cd TTF
+ls
+cd ~/.fonts
+ls
+packer centerim
+centerim
+centerim
+centerim
+centerim
+centerim
+packer irc
+vim .centerim/
+centerim
+packer irssi
+irssi
+su
+cd /home/allyson/projects
+ls
+ls
+cd sites
+ls
+cd kismetik
+ls
+ls
+ls
+mv style.css style.css.bak
+ln -s stylec.css style.css
+cd /home/aj/
+ls
+cd Projects
+ls
+cd Sites
+ls
+cd Folio
+ls
+cd ..
+cp Folio /home/allyson/projects/kismetik
+cp -R Folio /home/allyson/projects/sites/kismetik
+chown -R allyson kismetik
+chown -R allyson kismetik
+man chown
+chown -hR allyson kismetik
+man chown
+chown -hR allyson /home/allyson/projects/sites/kismetik
+ls
+cd ..
+cd ..
+cd..
+cd Downloads
+ls
+cd ..
+cd ..
+ls
+cd tutorial
+ls
+ranger
+vim ~/.zshrc
+cd
+cp .zshrc .zshrc.bak
+echo "export LESS_TERMCAP_mb=$'\E[01;31m'" >> ~/.zshrc
+man ranger
+source ~/.zshrc
+man zsh
+vim .zshrc
+source ~/.zshrc
+man zsh
+vim .zshrc
+source ~/.zshrc
+man ranger
+cd projects/tutorial/content/blog
+ls
+touch 2011-10-23.md
+vim 2011-10-23.md
+cat 2011-10-23.md
+cd ..
+cd ..
+nanoc compile
+nanoc view
+nanoc view
+nanoc ci blog
+vim content/blog.html
+nanoc compile
+nanoc view
+vim lib/tags.rb
+vi
+vim layout/default.html
+cd projects/tutorial
+nanoc compile
+nanoc view
+ls
+cd layouts
+ls
+cd ..
+nanoc compile
+nanoc view
+nanoc compile
+nanoc compile
+nanoc view
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc view
+cd sites
+ls
+cd ..
+cd sites
+ls
+git https://github.com/msutherl/nanoc_starter.git
+git clone https://github.com/msutherl/nanoc_starter.git
+cd nanoc_starter
+ls
+nanoc view
+ls
+cd content
+ls
+cd ..
+ls
+cd ..
+cd ..
+cd tutorial
+ls
+vim config.yaml
+cd ..
+rm -rf tutorial
+ls
+cd projects
+ls
+nanoc create_site my_blog
+cd my_blog
 tmux
-vim ~/.config/subtle/subtle.rb
-subtle -k
-subtle -k
-subtle -k
-subtle -k
-dir
-cd packages
-dir
+nanoc aco &
+mkdir content/blog
+nanoc create_item content/blog/first_post.md
+ls
+cd content
+ls
+cd ..
+cd content/blog
+create_item first_post.md
+nanoc create_item first_post.md
+ls
+cd ..
+cd ..
+rake create:article title="Stuff to test" path =/blog
+nanoc create_article stuff
+nanoc create_item blog/firstpost.md
+cd content/blog
+ls
+cd ..
+cd ..
+nanoc create_item blog/2011-10-23.md
+nanoc create_item 2011-10-23.md
+vim config.yaml
+nanoc create_item about
+nanoc create_item blog/2011-10-23
+vim content/blog/2011-10-23.html
+cd projects/my_blog
+ls
+cd content
+ls
+cd blog
+ls
+rm -r 2011-10-23.html
+touch first_post.md
+vim first_post.md
+cd projects/my_blog
+nanoc aoc &
+nanoc compile
+nanoc view
+killall nanoc
+pkill nanoc
+nanoc view
+touch layout/post.html.erb
+cd
+cd projects/my_blog
+ls
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc view
+nanoc compile
+nanoc compile
+nanoc view
+touch content/blog/second_post.md
+nanoc compile
+nanoc view
+nanoc compile
+nanoc view
+nanoc compile
+nanoc view
+nanoc compile
+nanoc view
+nanoc compile
+nanoc compile
+rm -r lib/tags.rb
+ls
+cd lib
+ls
+cd ..
+nanoc compile
+nanoc view
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc comile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+sudo gem install nokogiri
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc view
+ncmpcpp
+nanoc compile
+nanoc view
+nanoc compile
+nanoc view
+nanoc compile
+nanoc view
+nanoc compile
+nanoc compile
+nanoc view
+cd content
+ls
+cd blog
+ls
+cd ..
+cd ..
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc view
+rake tags
+rake tags
+rake tags
+cd content
+ls
+cd blogs
+ls
+cd blog
+ls
+cd ..
+cd ..
+rake tags
+rake tasks/tags.rake
+rake tasks/tags.rake
+rake tasks/tags.rake
+cd /usr/lib/ruby/1.9.1/
+ls
+cd rake
+ls
+cd ~/projects/my_blog
+ls
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+cd ..
+cd my_blog
+ls
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc view
+cd ..
+git clone https://github.com/mgutz/nanoc3_blog.git
+cd nanoc3_blog
+nanoc compile
+gem install builder
+nanoc compile
+gem install haml
+gem install bundler
+bundle install
+nanoc compile
+nanoc compile
+sudo wifi-select wlan0
+ranger
+packer thunderbird
+sudo pacman -Sy thunderbird
+sudo pacman -S mutt
+touch .muttrc
+vim .muttrc
+mkdir .mutt
+.mutt/cache
+mkdir .mutt
+mkdir .mutt/cache
+ls
+vim .muttrc
+vim .muttrc
+chmod 700 .muttrc
+mutt
+mutt
+pianobar
+irssi
+mkdir .hidden
+cd .hidden
+ls
+vim passws
+pianobar
+pianobar
+sudo wifi-select wlan0
+sudo wifi-select wlan0
+sudo pacman -S lampp
+packer lampp
+packer xampp
+cd /opt/lampp
+ls
+cd htdocs
+ls
+ln -s /home/allyson/projects/www/maths /opt/lampp/htdocs/maths
+sudo ln -s /home/allyson/projects/www/maths /opt/lampp/htdocs/maths
+ls
+cd maths
+ls
+sudo lampp start
+cd ..
+ls
+sudo rm -rf maths
+ls
+sudo cp -R /home/allyson/projects/www/maths /opt/lampp/htdocs/maths
+ls
+cd maths
+ls
+ls
+vim index.php
+sudo wifi-select wlan0
+cd coder
+su
+ls
+cd /home/coder
+ls
+cd abs
+ls
+cd community
+ls
+cd dwm
+cd ..
+cd ..
+cd ..
+cp abs /home/allyson/abs
+cp -R abs /home/allyson/abs
 cd 
-cd git
-dir
-mkdir dotfiles
-cd dotfiles
-git init
-touch README
-git add README
-git commit -m 'first commit'
-git remote add origin git@github.com:spo11/dotfiles.git
-git push -u origin master
-git push -u origin master
-git push -u origin master
-git config --global user.name "Spo11"
-git config --global user.email allysonjulian@gmail.com
-git push -u origin master
-cd
-cd ~/.ssh
-dir
+cd abs
 ls
-mkdir key_backup
-cp id_rsa* key_backup
-rm id_rsa*
-ssh-keygen -t rsa -C "allysonjulian@gmail.com"
-vim id_rsa.pub
-ssh git@github.com
-git config --global user.name "spo11"
-git config --global user.email "allysonjulian@gmail.com"
 cd
-cd git
-cd dotfiles
-git init
+rm -rf ABS
 ls
-git add README
-git commit -m 'first commit'
-git remote add origin git@github.com:spo11/dotfiles.git
-git push origin master
+cd abs
+ls
 cd ..
-mv dotfiles configs
-cd configs
-git init
-git add README
-git commit -m 'first commit'
-git remote add origin git@github.com:sp11/configs.gti
-git remote add origin git@github.com:sp11/configs.git
-git push -u origin master
+rm -rf abs
+ls
+cp /home/coder/abs abs
+rm -rf abs
+ls
+cp -R /home/coder/abs abs
+ls
+cd abs
+ls
+cd community
+ls
+cd dwm
+ls
+makepkg -s --skipinteg
+makepkg -sf --skipinteg
+ls
+cd pacman -U dwm-5.9-2-i686.pkg.tar.xz
+sudo pacman -U dwm-5.9-2-i686.pkg.tar.xz
+tmux
+wiki-search dwm
+wiki-search 0
+vim .xinitrc
+chmod +x .bin/startdwm
+ls
+cd .bin
+ls
+wiki-search cdm
+wiki-search 0
+sudo vim /etc/cdmrc
+sudo /etc/cdmrc
+sudo vim /etc/cdmrc
+vim .bin
+chmod +x ~/.bin/startsubtle
+chmod +x ~/.bin/startsubtle
+exit
+vim ~/.bin/startdwm
+vim ~/.startsubtle
+exit
+exit
+sudo shutdown -h now
+sudo wifi-select wlan0
+mogrify -format jpg *.png
+ls
+mogrify -format jpg *.png
+mogrify -format jpg *.png
+mogrify -format jpg *.png
+mogrify -format jpg *.png
+mogrify -format jpg -quality 100 *.png
+mogrify -format jpg -quality 80 *.png
+mogrify -format jpg -quality 90 *.png
+mogrify -format jpg -quality 90 *.png
+sudo wifi-select wlan0
+sudo wifi-select wlan0
+cd /etc/network.d
+ls
+sudo rm -r DREAMASSET_Network
+sudo vim /etc/rc.conf
+ls
+sudo wifi-select wlan0
+cd ~/projects/Ads/Banners/C
+ls
+mogrify -format jpg -quality 90 *.png
+sudo wifi-select wlan0
+sudo pacman -S openbox
+sudo pacman -S obconf
+sudo pacman -S obmenu-gen
+packer obmenu-gen
+packer obmenu
+packer bmpanel
+cd /home/coder/
+ls
+cd .config
+ls
+cd openbox
+ls
 cd ..
-rm -rf configs
+cp openbox /home/allyson/.config/openbox
+cd /home/allyson/.config/openbox
+ls
+vim autostart.sh
+vim autostart.sh
+sudo vim /etc/cdmrc
+wiki-search openbox
+wiki-search 0
+exit
+obmenu-generator
+packer sonata
+packer lxappearance
+cd projects
+ls
+cd my_blog
+nanoc compile
+nanoc iew
+nanoc view
+cd ..
+ls
+cd sites
+ls
+cd kismetik
+ls
+cd ..
+cp kismetik kismetik_nanoc
+cd kismetik_nanoc
+ls
+cd ..
+rm -rf kismetik_nanoc
+ls
+cd kismetik
+ls
+rm -rf _site
+mkdir template
+mv * template
+mv * template/
+mv *. template/
+mv *.html template/
+cp * template
+cd projects/sites/kismetik
+ls
+nanoc compile
+l
+ls
+vim config.yaml
+cd layouts
+ls
+vim post.html.erb
+cd ..
+nanoc view
+nanoc compile
+nanoc compile
+nanoc view
+nanoc compile
+nanoc compile
+nanoc view
+nanoc view
+nanoc compile
+nanoc compile
+nanoc view
+cd projects/sites/kismetik
+nanoc compile
+nanoc view
+nanoc compile
+nanoc view
+nanoc compile
+nanoc compile
+nanoc view
+nanoc compile
+nanoc view
+nanoc compile
+nanoc view
+nanoc compile
+nanoc view
+nanoc compile
+nanoc view
+nanoc compile
+nanoc view
+cd output
+ls
+rm -r *
+ls
+cd ..
+nanoc compile
+nanoc iew
+nanoc view
+nanoc compile
+nanoc view
+nanoc compile
+nanoc view
+nanoc compile
+nanoc view
+nanoc compile
+nanoc view
+cd layouts
+ls
+mv page.html page.hmtl.erb
+mv page.hmtl.erb page.html.erb
+ls
+cd ..
+nanoc compile
+cd output
+ls
+rm -r *
+cd ..
+nanoc compile
+nanoc view
+nanoc compile
+nanoc view
+nanoc compile
+nanoc compile
+nanoc view
+cd projects/sites/kismetik
+nanoc compile
+nanoc compile
+nanoc compile
+cd projects/sites/kismetik
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+gem install nanoc-toolbox
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+sudo shutdown -h now
+cd projects
+ls
+cd sites
+ls
+cd kismetik
+ls
+nanoc view
+packer reddit
+reddit-top-git
+reddit
+reddit-top
+r-top
+./reddit_top
+reddit_top
+packer reddit
+cortex
+man cortex
+irssi
+cd projects/sites/kismetik
+nanoc view
+packer thunar
+cd ~/music
+ls
+cd ..
+ln -s music /home/music/aj
+sudo ln -s music /home/music/aj
+cd /home/music
+su
+su
+cd /home/music
+ls
+cd aj
+ls
+cd /u
+chown mpd:users /home/music
+sudo chown -hR mpd:users /home/music
+cd /home/music
+su
+su
+ls
+cd /home/music
+ls
+cd Zero7
+ls
+cd ..
+cd
+wiki-search mpd
+wiki-search 0
+ncmpcpp
+mpc update
+cd /home/music
+ls
+cd aj
+rm -rf aj
+ls
+ln -s /home/allyson/music /home/music/aj
+ls
+cd aj
+ls
+mpc update
+mpc update
+ncmpcpp
+cd /home/music
+cd /home/music/aj
+ls
+sudo cd /home/music
+su
+su
+su
+cd /home/music
+ls
+cd aj
+ls
+cp * /home/allyson/music /home/music
+cp -R /home/allyson/music /home/music
+ls
+cd ..
+ls
+exit
+mpc update
+ncmpcpp
+sudo wifi-select wlan0
+sudo wifi-select wlan0
+cortex
+cd projects/sites/
+ls
+cd kismetik
+ls
+nanoc view
+cd
+ls -a
+cd .hidden
+ls
+cat passws
+pianobar
+cd projects/sites/kismetik
+ls
+nanoc compile
+nanoc view
+nanoc view
+nanoc compile
+nanoc compile
+nanoc view
+nanoc view
+nanoc compile
+nanoc view
+cd projects/sites/kismetik
+nanoc compile
+nanoc compile
+ping -c 3 www.google.com
+ping -c 3 www.google.com
+cd ~/.config/openbox
+ls
+chmod +x autostart.sh
+ls
+cortex
+exit
+vim ~/.xinitrc
+startx
+sudo pacman -R cdm
+sudo pacman -R cdm-git
+sudo shutdown -r now
+startx
+pkill x
+vim .xinitrc
+startx
+irssi
+sud vim /etc/cdmrc
+sudo vim /etc/cdmrc
+cd /usr/bin
+ls
+ln -s /home/allyson/.bin/startdwm /usr/bin/startdwm
+sudo ln -s /home/allyson/.bin/startdwm /usr/bin/startdwm
+ls
+whereis startdwm
+cat startdwm
+cd ~/.bin
+ls
+vim startsubtle
+vim startdwm
+sudo ln -s /home/allyson/.bin/startsubtle /usr/bin/startsubtle
+cp /home/coder/.bin/startob startob
+ls
+vim startob
+vim startdwm
+vim startsubtle
+minitube
+packer unetbootin
+packer gparted
+packer gksu
+packer gparted
+packer dosfs
+startx
+ncmpcpp
+ncmpcpp
+ranger
+vim ~/.config/subtle/subtle.rb
+ncmpcpp
+packer subtle
+vim
+sudo lampp start
+startx
+cd projects/sites/kismetik
+nanoc view
+tmux
+nanoc view
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+nanoc compile
+sudo shutdown -h now
+startx
+sudo chown -R allyson /home/aj/
+sudo wifi-select wlan0
+sudo wifi-select wlan0
+ping -c www.google.com
+ping -c 3 www.google.com
+cd downloads
+ls
+mpc update
+ncmpcpp
+mpc update
+su
+su
+cd /home/music
+ls
+cd aj
+ls
+mpc update
+exit
+ncmpcpp
+startx
+cd music
+ls
+cp * /home/music/
+sudo cp * /home/music/
+mpc update
+ncmpcpp
+ncmpcpp
+startx
+sudo wifi-select wlan0
+sudo lampp start
+packer talkplugin
+startx
+irssi
+packer google voice
+packer talkplugin
+xev
+irssi
+packer cdm
+wiki-search cdm
+wiki-search 0
+sudo vim /etc/inittab
+sudo vim /etc/cdmrc
+cd /usr/bin
+ls
+whereis subtle
+cd .bin
+ls
+cat startsubtle
+sudo vim /etc/cdmrc
+cd /usr/bin
+ls
+whereis startsubtle
+exit
+exit
+vim ~/.bin/startsubtle
+cat /usr/bin/startsubtle
+exit
+cd .bin
+ls
+chmod +x startdwm
+chmod +x startob
+ls
+vim startob
+vim startdwm
+cd /usr/bin
+whereis startob
+whereis startdwm
+sudo ln -s /home/allyson/.bin/startob /usr/bin/startob
+vim ~/.bin/startob
+sudo vim /etc/cdmrc
+exit
+exit
+exit
+sudo shutdown -r now
+sudo vim /etc/cdmrc
+exit
+vim ~/.bin/startdwm
+exit
+exit
+sudo wifi-select wlan0
+packer slimlock
+subtle -k
+exit
+vim ~/.bin/startsubtle
+sudo vim /etc/cdmrc
+exit
+sudo vim /etc/cdmrc
+vim ~/.bin/startob
+chmod +x ~/.bin/dwmscript
+cd 
+cd ~/.bin
+ls
+chmod +x dwmscript
+ls
+sudo ln -s /home/allyson/.bin/dwmscript /usr/bin/dwmscript
+sudo vim /etc/cdmrc
+ssh-keygen -t rsa -C "allyson@kismetik.com"
+packer ssh
+packer openssh
+ssh-keygen -t rsa -C "allyson@kismetik.com"
+ssh -T git@github.com
+git config --global user.name "A J"
+git config --global user.email "allyson@kismetik.com"
+git config --global github.user spo11
+git config --global github.token be3e7cf5cbc92dd74601116f6e979ced
+cd ~/.config/subtle/subtle.rb
 mkdir configs
+ls
 cd configs
+ls
+mkdir window-managers
+mkdir {browsers,consoles,editors,panels,x-files}
+ls
+cd browsers
+ls
+cd 
+cd configs
+ls
+mkdir scripts
+ls
+cd browsers
+mkdir firefox
+cd firefox
+ls
+ln -s ~/.pentadactylrc pentadactylrc
+cd
+cd ~/configs/browsers/firefox
+ls
+cd ..
+cd ..
+ls
+dir
 git init
-touch README
-mv README README.md
-vim README.md
-git add README.md
-git commit -m 'first commit'
+ls
+cd editors
+ls
+cd ..
+git add browsers
+git commit -m 'updated firefox configs'
 git remote add origin git@github.com:spo11/configs.git
-git push -u origin master
+git push origin master
+git pull
+ls
+cd consoles
+ls
+cd ..
+git pull git@github.com:spo11/configs.git
+ls
+cd browsers
+ls
+cd firefox
+cd ..
+cd ..
+git add browsers
+git commit -m 'updated firefox configs'
+git push origin master
+cd browsers
+ls
+cd firefox
+rm -r pentadactylrc
+ls
+cp ~/.pentadactylrc pentadactylrc
+cd ..
+cd ..
+cd window-managers
+ls
+cd subtle
+ls
+cp ~/.config/subtle/subtle.rb subtle.rb
+ls
+cat subtle.rb
+vim subtle.rb
+cd ..
+cd ..
+cd consoles
+ls
+cd zsh
+ls
+cd ..
+mv zsh zsh_old
+ls
+cp -R ~/.config/zsh/ zsh

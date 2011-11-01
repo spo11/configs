@@ -1,0 +1,110 @@
+#==============================================================
+#        __       __       __       __       __
+#       / /\     / /\     /_/\     / /\     / /\
+#      / / |_   / / /\   _\ \ \   / /  \   / / /
+#     /_/  |/\ /_/ /  \ /_/\/  \ /_/ / /_ /_/ / /\
+#  __ \_\/|  / \ \  / / \ \  /\/ \ \  __/ \ \ \/ /
+# /_/\  |_| /   \ \/ /   \ \ \    \ \ \    \ \  /
+# \_\/  \_\/     \_\/     \_\/     \_\/     \_\/
+#
+# A L I A S E S  F O R  Z S H
+#
+# Pacman
+alias install='sudo clyde -S'
+alias localinstall='sudo clyde -U'
+alias upgrade='sudo clyde -Syu; echo "" > $HOME/.pacmanupdates'
+alias search='sudo clyde -Ss'
+alias info='sudo clyde -Si'
+alias update='sudo clyde -Sy'
+alias remove='sudo clyde -Rs'
+alias clean='sudo clyde -Sc'
+alias orphanage='sudo /home/christian/bin/orphanage'
+
+# makepkg
+alias mkp='makepkg -si'
+alias mks='makepkg --source'
+alias mkg='makepkg -g'
+
+# Emerge -- also note functions in .config/zsh.d/functions !!
+#alias e='sudo emerge --quiet-build'
+#alias es='sudo emerge -s'
+#alias ep='sudo emerge -pv'
+#alias ec='sudo emerge --clean'
+#alias edc='sudo emerge -c'
+#alias ey='sudo emerge --sync; sudo layman -S'
+#alias eu='sudo emerge --quiet-build -aN -u @world'
+#alias eyu='sudo emerge --sync; sudo layman -S; sudo emerge --quiet-build -aN -u @world'
+#alias eyud='sudo emerge --sync; sudo layman -S; sudo emerge --quiet-build -aN -u --deep @world'
+#alias er='sudo emerge -C'
+#alias el='tail -f /var/log/emerge-fetch.log'
+
+# Be Faster
+alias s='sudo'
+alias cd..='cd ..'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ~='cd ~'
+alias cls='clear'
+alias h='history'
+alias rm='rm -r'
+alias rmf='rm -rf'
+alias cp='cp -r'
+alias cpp='rsync -PrlpE'
+alias cpz='rsync -PrlpEz'
+alias ls='ls --color=auto'
+alias ll='ls++'
+alias mk='mkdir -p'
+alias mkdir='mkdir -p'
+alias mplayer='mplayer -msgcolor'
+alias utorrent='utserver -configfile ~/.config/utorrent/utserver.conf'
+alias wget='wget -c'
+alias burniso='cdrecord -eject dev=1,0,0 -data'
+
+# Mounting
+alias musb='sudo mount /dev/sdb'
+alias uusb='sudo umount /mnt/usb'
+
+# Apache
+alias apache='sudo apache2ctl'
+
+# Tmux
+alias irc='tmux -2 a -t irc'
+alias imap='tmux -2 a -t imap'
+alias torrent='tmux -2 a -t torrent'
+alias t='tmux -2 a -t tmux'
+
+# Ping
+alias pr='ping -c 1 192.168.1.1 | tail -3'
+alias pg='ping -c 1 google.com | tail -3'
+
+# Git
+alias g='git'
+alias ga='git add'
+alias gst='git status'
+alias gl='git pull'
+alias gup='git fetch && git rebase'
+alias gp='git push'
+alias gd='git diff | mate'
+alias gdv='git diff -w "$@" | vim -R -'
+alias gc='git commit -m'
+alias gca='git commit -v -a'
+alias gb='git branch'
+alias gba='git branch -a'
+alias gcount='git shortlog -sn'
+alias gcp='git cherry-pick'
+
+# Ruby
+alias gem='sudo gem'
+
+
+# Fun with sed
+alias df='df -h | grep sd |\
+	sed -e "s_/dev/sda[1-9]_\x1b[34m&\x1b[0m_" |\
+	sed -e "s_/dev/sd[b-z][1-9]_\x1b[33m&\x1b[0m_" |\
+	sed -e "s_[,0-9]*[MG]_\x1b[36m&\x1b[0m_" |\
+	sed -e "s_[0-9]*%_\x1b[32m&\x1b[0m_" |\
+	sed -e "s_9[0-9]%_\x1b[31m&\x1b[0m_" |\
+	sed -e "s_/mnt/[-_A-Za-z0-9]*_\x1b[34;1m&\x1b[0m_"'
+
+alias duch='du -ch | grep insgesamt |\
+	sed -e "s_[0-9]*,[0-9]*[BGKMT]_\x1b[32m&\x1b[0m_"'

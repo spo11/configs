@@ -1,0 +1,12 @@
+#!/bin/bash
+#mpd ~/.mpd/mpd.conf &
+udiskie &
+#nitrogen --restore &
+bmpanel2 --theme=Litestyle-Caffeine &
+xfce4-power-manager &
+dropboxd &
+#while true; do
+#	xsetroot -name "$(date +"%a %d.%m/%H:%M:%S") $(df -h|grep root|awk '{print $4}')"
+#	sleep 1
+#done &
+exec ck-launch-session dbus-launch openbox-session

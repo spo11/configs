@@ -1,0 +1,50 @@
+/* Tabs */
+.TabsToolbar {
+  height: 16px !important;
+  max-height: 16px !important;
+  min-height: 16px !important;
+  overflow: hide !important;
+}
+
+.tabbrowser-tab {
+  -moz-appearance: none !important;
+  -moz-border-image: none !important;
+  -moz-border-radius: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-right: 1px solid #444 !important;
+  color: #606060 !important;
+  font-family: 'Calibri';
+  font-size: 11px !important;
+  height: 16px !important;
+  max-height: 16px !important;
+  min-height: 16px !important;
+  padding: 0 5px !important;
+  text-align: center !important;
+}
+
+.tabbrowser-tab[selected="true"] {
+  background: #303030 !important;
+  color: #909090 !important;
+}
+
+#appmenu-toolbar-button, #alltabs-button, .tab-icon-image {
+  display: none !important;
+}
+
+/* Tab close button */
+
+.tab-close-button {
+ display: none !important;
+}
+
+/* Status Bar */
+
+#status-bar, .dactyl-container {
+  font-size: 9px !important;
+  font-weight: normal !important;
+}
+
+.tabs-newtab-button {
+display: none !important;
+}

@@ -1,0 +1,73 @@
+#==============================================================
+#
+# C O N F I G U R A T I O N  F O R  Z S H
+#
+
+#=-=-=-=-=-=-=
+# load stuffs
+#=-=-=-=-=-=-=
+
+autoload -U colors
+autoload -U compinit
+autoload -U vcs_info
+
+zmodload zsh/complist
+zmodload zsh/terminfo
+
+# setopt
+setopt autocd extendedglob
+setopt prompt_subst
+setopt inc_append_history
+
+# start stuffs
+colors
+compinit
+vcs_info
+
+
+#=-=-=-=-
+# zstyle
+#=-=-=-=-
+
+# vcs_info
+zstyle ':vcs_info:*'                      enable git hg svn
+
+# completion
+
+# ignore completion to commands we don't have
+zstyle ':completion:*:functions'          ignored-patterns '_*'
+
+# format autocompletion style
+zstyle ':completion:*:descriptions'       format "%{$fg[green]%}%d%{$reset_color%}"
+zstyle ':completion:*:corrections'        format "%{$fg[yellow]%}%d%{$reset_color%}"
+zstyle ':completion:*:messages'           format "%{$fg[red]%}%d%{$reset_color%}"
+zstyle ':completion:*:warnings'           format "%{$fg[red]%}%d%{$reset_color%}"
+
+# zstyle show completion menu if 2 or more items to select
+zstyle ':completion:*'                    menu select=2
+
+# zstyle kill menu
+zstyle ':completion:*:*:kill:*'           menu yes select
+zstyle ':completion:*:kill:*'             force-list always
+zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
+
+export HISTSIZE=1000
+export SAVEHIST=1000
+export HISTFILE=~/.config/zsh.d/history
+
+bindkey -v
+
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Import seperate config files
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+source ~/.config/zsh/aliases
+source ~/.config/zsh/functions
+source ~/.config/zsh/fixkeys
+source ~/.config/zsh/envars
+source ~/.config/zsh/directories
+source ~/.config/zsh/prompt
+# source ~/git/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+eval $( dircolors -b $HOME/.config/zsh/ls_colors )
+export LS_COLORS

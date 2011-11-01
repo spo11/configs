@@ -1,0 +1,32 @@
+## ZSH Environment Variables
+
+for color in BLACK RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
+  eval PR_LIGHT_$color='%{$terminfo[bold]$fg[${(L)color}]%}'
+  eval PR_$color='%{$fg[${(L)color}]%}'
+
+  export PR_$color
+  export PR_LIGHT_$color
+done
+
+export PR_NO_COLOR="%{$terminfo[sgr0]%}"
+
+export HISTSIZE=1000
+export SAVEHIST=1000
+export HISTFILE=~/.config/zsh/history
+export DISPLAY=:0
+
+#export LANG='de_DE.utf8'
+#export LC_CTYPE='de_DE.utf8'
+#export LC_TIME="de_DE.utf8"
+#export LC_NUMERIC="de_DE.utf8"
+#export LC_MONETARY="de_DE.utf8"
+#export LC_MESSAGES="de_DE.utf8"
+
+export SHELL='/bin/zsh'
+
+export EDITOR='vim'
+
+export PATH='/usr/local/bin:/usr/bin:/usr/games/bin:/bin:/opt/bin:/usr/x86_64-pc-linux-gnu/gcc-bin/4.4.4:/home/crshd/bin:'
+#export PAGER='vimmanpager'
+
+export WINEPREFIX='/home/crshd/.wine32'

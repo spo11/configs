@@ -77,6 +77,11 @@ alias t='tmux -2 a -t tmux'
 alias pr='ping -c 1 192.168.1.1 | tail -3'
 alias pg='ping -c 1 google.com | tail -3'
 
+# Power
+alias sleep='sudo /usr/sbin/pm-suspend'
+alias halt='sudo /sbin/shutdown -h now'
+alias reboot='sudo /sbin/shutdown -r now'
+
 # Git
 alias g='git'
 alias ga='git add'
@@ -95,7 +100,13 @@ alias gcp='git cherry-pick'
 
 # Ruby
 alias gem='sudo gem'
+alias rake='noglob rake'
 
+# Android SDK
+alias adb="sudo /opt/android-sdk/platform-tools/adb"
+
+# Scrot
+alias smile='cd ~/pictures/ss && scrot -cd 5 && cd -'
 
 # Fun with sed
 alias df='df -h | grep sd |\

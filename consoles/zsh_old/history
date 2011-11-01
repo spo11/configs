@@ -1,0 +1,115 @@
+python
+tmux
+tmux kill serve
+tmux kill-server
+tmux
+vim lol.py
+ncmpcpp
+sudo vim /usr/bin/music
+alsi
+tmux
+tmux
+tmux kill-server
+tmux
+packer qiviewer
+vim ~/.config/subtle/subtle.rb
+subtle -k
+vim .config/subtle/subtle.rb
+subtle -k
+tmux
+cat ~/.config/subtle/subtle.rb
+cat ~/.config/subtle/subtle.rb|less
+subtle -k
+subtle -k
+subtle -k
+subtle -k
+subtle -k
+subtle -k
+subtle -k
+subtle -k
+subtle -k
+subtle -k
+subtle -k
+subtle -k
+subtle -k
+packer muttator
+packer muttator
+vim ~/.config/subtle/subtle.rb
+packer quick-init
+sudo vim /boot/grub/menu.lst
+sudo vim /etc/rc.conf
+sudo cp -i -p /lib/udev/load-modules.sh /lib/udev/load-modules.sh.old
+sudo sed -i "s#/lib/udev/load-modules.sh#/sbin/modprobe#g" /etc/udev/rules.d/*.rules
+sudo vim /lib/udev/load-modules.sh
+cat /etc/rc.sysinit | less
+vim /etc/mkinitcpio.conf
+sudo vim /etc/rc.conf
+vim .vimperatorrc
+ranger
+tmux
+vim ~/.config/subtle/subtle.rb
+subtle -k
+subtle -k
+subtle -k
+subtle -k
+dir
+cd packages
+dir
+cd 
+cd git
+dir
+mkdir dotfiles
+cd dotfiles
+git init
+touch README
+git add README
+git commit -m 'first commit'
+git remote add origin git@github.com:spo11/dotfiles.git
+git push -u origin master
+git push -u origin master
+git push -u origin master
+git config --global user.name "Spo11"
+git config --global user.email allysonjulian@gmail.com
+git push -u origin master
+cd
+cd ~/.ssh
+dir
+ls
+mkdir key_backup
+cp id_rsa* key_backup
+rm id_rsa*
+ssh-keygen -t rsa -C "allysonjulian@gmail.com"
+vim id_rsa.pub
+ssh git@github.com
+git config --global user.name "spo11"
+git config --global user.email "allysonjulian@gmail.com"
+cd
+cd git
+cd dotfiles
+git init
+ls
+git add README
+git commit -m 'first commit'
+git remote add origin git@github.com:spo11/dotfiles.git
+git push origin master
+cd ..
+mv dotfiles configs
+cd configs
+git init
+git add README
+git commit -m 'first commit'
+git remote add origin git@github.com:sp11/configs.gti
+git remote add origin git@github.com:sp11/configs.git
+git push -u origin master
+cd ..
+rm -rf configs
+mkdir configs
+cd configs
+git init
+touch README
+mv README README.md
+vim README.md
+git add README.md
+git commit -m 'first commit'
+git remote add origin git@github.com:spo11/configs.git
+git push -u origin master

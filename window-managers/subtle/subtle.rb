@@ -2,8 +2,7 @@
 # Version:: 1.1
 # License:: GNU GPL
 #
-# = custom subtle
-#
+# = custom subtle #
 # This file will be installed as default and can also be used as a starter for
 # an own custom configuration file. The system wide config usually resides in
 # +/etc/xdg/subtle+ and the user config in +HOME/.config/subtle+, both locations
@@ -39,7 +38,7 @@ set :resize, false
 
 # Font string either take from e.g. xfontsel or use xft
 #set :font, "-*-*-medium-*-*-*-12-*-*-*-*-*-*-*"
-set :font, "xft:HeldustryFTVBasic Demi:pixelsize=9"
+#set :font, "xft:HeldustryFTVBasic Demi:pixelsize=9"
 
 # Space around windows
 #set :gap, 5
@@ -48,7 +47,7 @@ set :font, "xft:HeldustryFTVBasic Demi:pixelsize=9"
 #set :padding, [ 0, 0, 0, 0 ]
 
 # Separator between sublets
-set :separator, ":"
+set :separator, "|"
 
 # Outline border size in pixel of panel items
 #set :outline, 0
@@ -88,13 +87,13 @@ screen 1 do
   #stipple false
 
   # Content of the top panel
-  #top     [ :title, :spacer, :views ]
-  #top      [ :views, :tasks ]
+  #top     [ :title, :views, :clock ]
+  top      [ :views, :tasks, :spacer, :wifi, :separator, :battery, :separator, :clock ]
   #top      [ :views, :title, :spacer, :separator, :wifi, :separator, :mpd, :separator, :volume, :separator, :battery, :separator, :clock ]
   #top  [ :views, :spacer, :mpd, :separator, :volume, :battery, :separator, :clock ]
 
   # Content of the bottom panel
-  bottom  [ :views, :tasks, :spacer, :mpd, :separator, :memory, :separator, :wifi, :separator, :battery, :separator, :clock ]
+  bottom  [ :mpd, :spacer, :tray, :separator, :memory, :separator, :weather_mod ]
   #bottom     [ :mpd, :spacer, :views, :spacer, :tray, :volume, :battery, :wifi, :clock ]
 end
 
@@ -130,69 +129,74 @@ end
 
 # Styles {{{
 # Colors of focus window title
+
+style :all do
+  padding    2, 6, 2, 6
+  background "#EBEBEB"
+  font       "xft:HeldustryFTVBasic Demi:pixelsize=9"
+end
+
 style :title do
-  padding     2, 10, 0, 10
-  #border_bottom "#303030", 2
-  foreground  "#8CD0D3"
-  background  "#1b1b1b"
-end
-
-style :focus do
-  padding     2, 8, 0, 8
-  border_bottom "#606060", 2
-  #border_bottom "#090909", 1
-  #border_right "#090909", 1
-  #border "3b3b3b", 1
-  #border_top "3b3b3b", 1
-  foreground  "#F8F893"
-  background  "#3b3b3b"
-end
-
-style :urgent do
-  padding     2, 8, 0, 8
-  #border      "#303030", 0
-  foreground  "#ffffff"
-  background  "#519f50"
-end
-
-style :occupied do
-  padding     2, 8, 0, 8
-  border_bottom "#424242", 2
-  foreground  "#82a282"
-  background  "#2E2E2E"
+  foreground "#FFFFFF"
 end
 
 style :views do
-  padding     2, 8, 0, 8
-  foreground  "#3A3A3A"
-  background  "#222222"
+  style :focus do
+    padding     2, 8, 0, 8
+    border_left "#b0b0b0", 1
+    border_right "#b0b0b0", 1
+    foreground  "#b22020"
+    background  "#c2c2c2"
+  end
+
+  style :occupied do
+    padding     2, 8, 0, 8
+    border_right "#d1d1d1", 1
+    foreground  "#95B2C1"
+    background  "#dbdbdb"
+  end
+
+  style :unoccupied do
+    padding     2, 8, 0, 8
+    foreground "#7c7c72"
+  end
+
+  style :urgent do
+    icon       "#c0bd5c"
+    padding     2, 8, 0, 8
+    foreground  "#ffffff"
+    background  "#519f50"
+  end
+
+  style :visible do
+    padding_top 0
+    border_top  "#dbdbdb", 2
+  end
 end
 
 style :sublets do
-  padding     2, 10, 0
-#  border_bottom "#303030", 2
+  padding     2, 8, 0, 8
+  icon       "#7c7c72"
   foreground  "#b0b0b0"
-  background  "#222222"
+  background  "#EBEBEB"
 end
 
 style :separator do
-  padding     1, 0, 0
-#  border_bottom "#090909", 2
-  background  "#222222"
+  background  "#EBEBEB"
   foreground  "#505050"
 end
 
 style :clients do
-  active      "#EBEBEB", 2
-  inactive    "#A8A8A8", 2
-  margin    3  
+  active      "#EBEBEB", 1
+  inactive    "#A8A8A8", 1
+  margin   2
 end
 
 style :subtle do
-  padding     1
-  panel       "#222222"
+  panel       "#EBEBEB"
   stipple     "#757575"
-end
+end # }}}
+
 # }}}
 
 #
@@ -426,12 +430,12 @@ grab "W-l", :WindowRight
 grab "W-S-k", :WindowKill
 
 # Volume Control
-#grab "XF86AudioRaiseVolume", "amixer set Master 5%+ unmute"
-#grab "XF86AudioLowerVolume", "amixer set Master 5%- unmute"
-#grab "XF86AudioMute", "amixer set Master toggle"
-grab "XF86AudioRaiseVolume", "vol up"
-grab "XF86AudioLowerVolume", "vol down"
-grab "XF86AudioMute", "vol mute"
+grab "XF86AudioRaiseVolume", "amixer set Master 5%+ unmute"
+grab "XF86AudioLowerVolume", "amixer set Master 5%- unmute"
+grab "XF86AudioMute", "amixer set Master toggle"
+#grab "XF86AudioRaiseVolume", "vol up"
+#grab "XF86AudioLowerVolume", "vol down"
+#grab "XF86AudioMute", "vol mute"
 
 # Cycle between given gravities
 #grab "W-KP_7", [ :top_left,     :top_left66,     :top_left33     ]
@@ -457,10 +461,11 @@ grab "W-c", [ :bottom_right, :bottom_right66, :bottom_right33 ]
 
 # Exec programs
 grab "W-S-Return", "urxvt"
-grab "W-Return", "gmrun"
+#grab "W-Return", "gmrun"
+grab "A-F2", "gmrun"
 
 # Shutdown Dialog
-grab "W-A-x", "shutdown-dialog.py"
+#grab "W-A-x", "shutdown-dialog.py"
 
 # Run Ruby lambdas
 grab "S-F2" do |c|
@@ -599,7 +604,7 @@ grab "XF86AudioStop", "mpc stop"
 # Simple tags
 #tag "terms",   "xterm|[u]?rxvt"
 tag "browser", "luakit|jumanji|uzbl|firefox|chromium|navigator"
-tag "filemanager", "pcmanfm|nautilus|xarchiver|file-roller|geeqie|viewnior|thunar|nitrogen|qiviewer"
+tag "filemanager", "sxiv|pcmanfm|nautilus|xarchiver|file-roller|geeqie|viewnior|thunar|nitrogen|qiviewer"
 tag "music", "sonata|banshee|pithos"
 tag "video", "minitube|vlc|mplayer|gnome-mplayer|umplayer"
 tag "text", "emacs|gvim|lyx" 
@@ -612,7 +617,7 @@ tag "writing", "focuswriter"
 # Terminal
 tag "terms" do
    match "xterm|[u]?rxvt"
-   #exclude :instance => "mutt|ncmpcpp|pianobar"
+   exclude :instance => "mutt|ncmpcpp|pianobar"
 end
 
 # Science
@@ -790,50 +795,71 @@ end
 #view "dev",   "editor"
 #view "file", "filemanager"
 
-view "" do
-	match "filemanager|default"
-	icon "~/.icons/xbm2/arch2.xbm"
+icons = true
+iconpath = "#{ENV["HOME"]}/.icons/xbm2"
+view "home" do
+	match "filemanager"
+	#icon "~/.icons/xbm2/house.xbm"
+        icon      Subtlext::Icon.new("#{iconpath}/house.xbm")
+  	icon_only icons
 end
 
-view "" do
+view "misc" do
 	match "writing|ebooks"
-	icon "~/.icons/xbm2/screen.xbm"
+#	icon "~/.icons/xbm2/screen.xbm"
+        icon      Subtlext::Icon.new("#{iconpath}/screen.xbm")
+  	icon_only icons
 end
 
-view "" do
+view "www" do
 	match "browser"
-	icon "~/.icons/xbm2/world.xbm"
+	#icon "~/.icons/xbm2/fox.xbm"
+        icon      Subtlext::Icon.new("#{iconpath}/fox.xbm")
+  	icon_only icons
 end
 
-view "" do
-	match "terms|text"
-	icon "~/.icons/xbm2/terminal.xbm"
+view "terms" do
+	match "terms"
+	#icon "~/.icons/xbm2/terminal.xbm"
+        icon      Subtlext::Icon.new("#{iconpath}/terminal.xbm")
+  	icon_only icons
 end
 
-view "" do
+view "code" do
+	match "text"
+#	icon "~/.icons/xbm2/file2.xbm"
+        icon      Subtlext::Icon.new("#{iconpath}/file2.xbm")
+  	icon_only icons
+end
+
+view "office" do
 	match "office"
-	icon "~/.icons/xbm2/bag.xbm"
+#	icon "~/.icons/xbm2/bag.xbm"
+        icon      Subtlext::Icon.new("#{iconpath}/bag.xbm")
+  	icon_only icons
 end
 
-view "" do
-	match "music|video|ncmpcpp"
-	icon "~/.icons/xbm2/note1.xbm"
-end
-
-view "" do
+view "edit" do
 	match "graphics|gimp_image|gimp_toolbox|gimp_dock"
-	icon "~/.icons/xbm2/wand.xbm"
+#	icon "~/.icons/xbm2/wand.xbm"
+        icon      Subtlext::Icon.new("#{iconpath}/wand.xbm")
+  	icon_only icons
 end
 
-view "" do
-	match "chat"
-	icon "~/.icons/xbm2/balloon.xbm"
+view "play" do
+	match "ncmpcpp|music|video|pianobar"
+#	icon "~/.icons/xbm2/tv.xbm"
+        icon      Subtlext::Icon.new("#{iconpath}/tv.xbm")
+  	icon_only icons
 end
 
-view "" do
+view "mail" do
 	match "mail"
-	icon "~/.icons/xbm2/mail.xbm"
+#	icon "~/.icons/xbm2/tv.xbm"
+        icon      Subtlext::Icon.new("#{iconpath}/mail.xbm")
+  	icon_only icons
 end
+
 #view "mail" do
 #   match "mutt"
 #   icon  "/home/aj/.icons/xbm2/mail.xbm"
@@ -927,23 +953,23 @@ end
 # vim:ts=2:bs=2:sw=2:et:fdm=marker
 
 # hooks
-on :start do
-   Subtlext::Subtle.spawn "nitrogen --restore" 
-end
-on :start do
-   Subtlext::Subtle.spawn "dropbox start" 
-end
-on :start do
-   Subtlext::Subtle.spawn "tilda" 
-end
-on :start do
-   Subtlext::Subtle.spawn "kupfer --no-splash" 
-end
+#on :start do
+#   Subtlext::Subtle.spawn "nitrogen --restore" 
+#end
+begin
+   require "#{ENV["HOME"]}/.local/share/subtle/subtle-contrib/ruby/launcher.rb" 
+ rescue LoadError => error
+   puts error
+ end
+
+ grab "W-Return" do
+   Subtle::Contrib::Launcher.run
+ end
 # wifi
 sublet :wifi do
   interval      1
   foreground    "#cc7833"
-  background    "#151515"
+  background    "#ebebeb"
 end
 # weather
   sublet :weather do
@@ -956,7 +982,7 @@ end
     interval      30
     foreground    "#dca3a3"
 #    background    "#000000"
-    format_string "%I:%M %p"
+    format_string "%I:%M %p [%m/%d]"
   end
   # mpd
   sublet :mpd do
@@ -965,17 +991,13 @@ end
          #    background    "#000000"
      format_string "%note% %title%"
      show_colors   "true"
-    # show_icons    "false"
+     show_icons    "false"
      stop_text     "" 
      not_running_text "mpd is not running"
      pause_text    "music paused"
   end  
-  # volume
-  sublet :volume do
-         # interval      30
-             foreground    "#9FAFAF"
-         #    background    "#000000"
-     #format_string "%note%"
+  # weather_mod
+  sublet :weather_mod do
+	location Chicago
   end
-  #             
 

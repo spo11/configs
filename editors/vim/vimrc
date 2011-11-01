@@ -1,17 +1,17 @@
 set number
+set nocompatible
+filetype plugin on
+syntax on
+color molokai
+set autoindent
 set wrap
 set linebreak
-syntax on
-set guioptions-=T
-set mouse=
 set t_Co=256
-set guifont=Pragmata\ Medium\ 7.5
-colors vylight
-nnoremap <leader>w <C-w>v<C-w>l
-filetype plugin indent on
-autocmd FileType python set complete+=k~/.vim/syntax/python.vim isk+=.,(
-" Execute file being edited with <Shift> + e:
-map <buffer> <S-e> :w<CR>:!/usr/bin/env python % <CR>
-
-
-      
+set guifont=Pragmata\ Medium\ 8
+" set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hadn scrollbar
+" NERDTree configuration
+let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
+nmap <Leader>n :NERDTreeToggle<CR>
