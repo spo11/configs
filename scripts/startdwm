@@ -1,15 +1,87 @@
-#!/bin/bash
-nitrogen --restore &
+#!/bin/zsh
 #while true; do
 #	xsetroot -name "$(date +"%a %d.%m/%H:%M:%S") $(df -h|grep root|awk '{print $4}')"
 #	sleep 1
 #done &
+time_format="%I:%M %p"
+date_format="%m/%d/%y"
+
+internet_checker()  # {{{
+{
+        if host google.com &> /dev/null ; then
+        echo "ON" ; else
+        echo "OFF"
+        fi
+} # }}}
+
+gmail_website_checker() { # {{{
+        if host mail.google.com &> /dev/null ; then
+        echo "ON"; else 
+        echo "OFF"
+        fi
+} # }}}
+
+gmail_notify() # {{{
+{
+        if [[ $(internet_checker) == ON ]]  ; then
+                . $HOME/backup/gmail # $username and $password here
+                curl -s https://"$username":"$password"@mail.google.com/mail/feed/atom &> ${HOME}/.mailcache
+                fullcount=$(awk -F '</?fullcount>' 'NF>1{print $2}' ${HOME}/.mailcache)
+                if [[ "$fullcount" == '0' ]] ; then
+                        echo -e "  \x06Ê \x07no new emails\x01"
+                elif [[ "$fullcount" == '1' ]] ; then
+                        echo -e "  \x05Ê 1\x07 new email\x01"
+                else echo -e "  \x05Ê \x05${fullcount}\x01 \x07new emails\x01"
+                fi
+        fi
+} # }}}
+
+date_get() # {{{
+{
+        time_command=$(date +"$time_format")
+	date_command=$(date +"$date_format")
+        echo -e " \x07É \x08${time_command}\x01 \x07Ä \x08${date_command}\x01"
+} # }}}
+
+mpd_check() # {{{
+{
+         if mpc &> /dev/null && [[ $(mpc | wc -l) != 1 ]]; then
+         echo "ON" ; else
+         echo "OFF"
+         fi
+} # }}}
+
+check_mpd_pause() { # {{{
+        if [[ $(mpc | awk 'NR==2 {print $1}') == "[paused]" ]] ; then
+        echo " ç"
+        fi
+}      # }}}
+
+mpd_details() { # {{{{
+        if [[ $(mpd_check) == ON ]] ; then
+        echo -e "\x07ê \x06$(mpc -f %title% | head -1)\x01\x03$(check_mpd_pause)\x01 \x08$(mpc | awk 'NR==2 {print $3}')\x01"
+        fi
+} # }}}
+
+wifi_status() {
+	echo -e "\x07Ç \x08$(netcfg current)\x01"
+}
+
+batt_check() {
+	echo -e "\x07ð \x03$(acpi -b | awk '{ print $4 " " $5 }' | tr -d ',')\x01"
+}
+
+vol_stat() {
+	echo -e "\x07í \x08$(amixer get Master | tail -1 | awk '{ print $4}' | tr -d '[]')\x01"
+}
+# main
+#xsetroot -name "$(mpd_details) $(date_get)"
 while true
 do
    if acpi -a | grep off-line > /dev/null; then
-       xsetroot -name "Bat. $( acpi -b | awk '{ print $4 " " $5 }' | tr -d ',' ) | Vol. $(amixer get Master | tail -1 | awk '{ print $5}' | tr -d '[]') | $(date +"%a, %b %d %R")"
+       xsetroot -name " $(mpd_details) $(batt_check) $(vol_stat) $(wifi_status) $(date_get)"
    else
-       xsetroot -name "Vol. $(amixer get Master | tail -1 | awk '{ print $5}' | tr -d '[]') | $(date +"%a, %b %d %R")"
+       xsetroot -name " $(mpd_details) $(wifi_status) $(vol_stat) $(mpd_details) $(date_get)"
    fi
    sleep 1s   
 done &
