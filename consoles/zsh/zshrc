@@ -66,10 +66,12 @@ source ~/.config/zsh/fixkeys
 source ~/.config/zsh/envars
 source ~/.config/zsh/directories
 source ~/.config/zsh/prompt
+
 # source ~/git/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 eval $( dircolors -b $HOME/.config/zsh/ls_colors )
 export LS_COLORS
+export TERM=rxvt-unicode-256color
 
 # Add some color to manpages
 export LESS_TERMCAP_mb=$'\E[01;31m'
