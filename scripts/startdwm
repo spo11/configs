@@ -4,7 +4,7 @@
 #	sleep 1
 #done &
 time_format="%I:%M %p"
-date_format="%m/%d/%y"
+date_format="%m/%d"
 
 internet_checker()  # {{{
 {
@@ -40,7 +40,8 @@ date_get() # {{{
 {
         time_command=$(date +"$time_format")
 	date_command=$(date +"$date_format")
-        echo -e " \x07É \x08${time_command}\x01 \x07Ä \x08${date_command}\x01"
+        echo -e "[\x07É\x08${time_command}\x01|\x02${date_command}\x01]"
+        #\x07Å\x08${date_command}\x01]
 } # }}}
 
 mpd_check() # {{{
@@ -59,29 +60,38 @@ check_mpd_pause() { # {{{
 
 mpd_details() { # {{{{
         if [[ $(mpd_check) == ON ]] ; then
-        echo -e "\x07ê \x06$(mpc -f %title% | head -1)\x01\x03$(check_mpd_pause)\x01 \x08$(mpc | awk 'NR==2 {print $3}')\x01"
+        echo -e "\x07ê\x06$(mpc -f %title% | head -1)\x01\x03$(check_mpd_pause)\x01 \x08$(mpc | awk 'NR==2 {print $3}')\x01"
         fi
 } # }}}
 
 wifi_status() {
-	echo -e "\x07Ç \x08$(netcfg current)\x01"
+	echo -e "[\x07£\x08$(netcfg current)\x01]"
 }
 
 batt_check() {
-	echo -e "\x07ð \x03$(acpi -b | awk '{ print $4 " " $5 }' | tr -d ',')\x01"
+	echo -e "[\x07ð\x03$(acpi -b | awk '{ print $4 " " $5 }' | tr -d ',')\x01]"
 }
 
 vol_stat() {
-	echo -e "\x07í \x08$(amixer get Master | tail -1 | awk '{ print $4}' | tr -d '[]')\x01"
+	echo -e "[\x07í\x08$(amixer get Master | tail -1 | awk '{ print $4}' | tr -d '[]')\x01]"
 }
+
+dropbox_s() {
+	echo -e "[\x07Ü\x08$(dropbox status)\x01]"
+}
+
+weather_check() {
+        echo -e "[\x07Ò\x08$(weather -i KMDW | head -3 | tail -1 | awk '{ print $2 " " $3 }')\x01]" 
+}
+
 # main
 #xsetroot -name "$(mpd_details) $(date_get)"
 while true
 do
    if acpi -a | grep off-line > /dev/null; then
-       xsetroot -name " $(mpd_details) $(batt_check) $(vol_stat) $(wifi_status) $(date_get)"
+       xsetroot -name " $(mpd_details)$(batt_check)$(dropbox_s)$(weather_check)$(vol_stat)$(wifi_status)$(date_get)"
    else
-       xsetroot -name " $(mpd_details) $(wifi_status) $(vol_stat) $(mpd_details) $(date_get)"
+       xsetroot -name " $(mpd_details)$(wifi_status)$(dropbox_s)$(weather_check)$(vol_stat)$(date_get)"
    fi
    sleep 1s   
 done &
