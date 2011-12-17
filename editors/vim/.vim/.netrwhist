@@ -1,8 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home/coder/.mozilla/firefox/dtr3xg8w.default/chrome'
-let g:netrw_dirhist_2='/etc/xdg/subtle'
-let g:netrw_dirhist_3='/home/coder/.config/zsh'
-let g:netrw_dirhist_4='/home/allyson/.config/zsh'
-let g:netrw_dirhist_5='/home/allyson/.centerim'
-let g:netrw_dirhist_6='/home/allyson/.bin'
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/allyson/.darwinia'
+let g:netrw_dirhist_2='/home/allyson/configs'
+let g:netrw_dirhist_3='/home/allyson/.screenlayout'
